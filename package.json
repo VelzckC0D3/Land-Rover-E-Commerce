@@ -1,0 +1,41 @@
+{
+  "name": "land-rover-e-commerce",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build && NODE_ENV=production npx tailwindcss build -o dist/tailwind.css",
+    "serve": "vite preview"
+  },
+  "dependencies": {
+    "@reduxjs/toolkit": "^1.9.5",
+    "autoprefixer": "^10.4.15",
+    "postcss": "^8.4.28",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "tailwindcss": "^3.3.3"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.22.10",
+    "@babel/eslint-parser": "^7.22.10",
+    "@babel/plugin-syntax-jsx": "^7.22.5",
+    "@babel/preset-env": "^7.22.10",
+    "@babel/preset-react": "^7.22.5",
+    "@types/react": "^18.2.15",
+    "@types/react-dom": "^18.2.7",
+    "@vitejs/plugin-react-swc": "^3.3.2",
+    "eslint": "^7.32.0",
+    "eslint-config-airbnb": "^18.2.1",
+    "eslint-plugin-import": "^2.28.0",
+    "eslint-plugin-jsx-a11y": "^6.7.1",
+    "eslint-plugin-react": "^7.33.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-react-refresh": "^0.4.3",
+    "stylelint": "^13.13.1",
+    "stylelint-config-standard": "^21.0.0",
+    "stylelint-csstree-validator": "^1.9.0",
+    "stylelint-scss": "^3.21.0",
+    "vite": "^4.4.5"
+  }
+}
