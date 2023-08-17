@@ -3,7 +3,7 @@
 <div align="center">
   <br/>
 
-  <h1><b>Greetings - React Frontend</b></h1>
+  <h1><b>Land Rover E-Commerce</b></h1>
 
 </div>
 
@@ -28,13 +28,14 @@
 - [🤝 Contributing](#contributing)
 - [⭐️ Show your support](#support)
 - [🙏 Acknowledgements](#acknowledgements)
+- [🙏 Credits](#credit)
 - [📝 License](#license)
 
 <!-- PROJECT DESCRIPTION -->
 
-# 📖 Greetings - React Frontend <a name="about-project"></a>
+# 📖 Land Rover E-Commerce <a name="about-project"></a>
 
-**Greetings - React Frontend** "This project is going to have a React front-end with a Rails back-end and connect them to display a random message."
+**Land Rover E-Commerce** "The Final Capstone Project is based on an E-commerce app to make a reservation to try Land Rover vehicle."
 
 ## 🛠 Built With <a name="built-with"></a>
 
@@ -69,15 +70,13 @@
 <!-- Features -->
 ### Back End React <a name="#backend"></a>
 
-- [Back-End React](https://github.com/Metaverse-Nabeel/greetings-rails) 
+- [Back-End React](https://github.com/VelzckC0D3/land-rover-back-end.git) 
 
 ### Key Features <a name="key-features"></a>
 
 - **[Setup with vite]**
 - **[Setup linters for React/Redux]**
 - **[Setup React TailwindCSS]**
-- **[Fetch Messages data form Rails API]**
-- **[Show Greeting Messages]**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -95,9 +94,9 @@ Browser
 
 ### Setup
 
-git clone https://github.com/Metaverse-Nabeel/greetings-react.git
+git clone https://github.com/VelzckC0D3/Land-Rover-E-Commerce.git
 
-cd greetings-react
+cd Land-Rover-E-Commerce
 
 ### Install
 
@@ -144,7 +143,7 @@ npm run build
 
 Contributions, issues, and feature requests are welcome!
 
-Feel free to check the [issues page](../../issues/).
+Feel free to check the [issues page](https://github.com/VelzckC0D3/Land-Rover-E-Commerce/issues).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -163,6 +162,14 @@ If you like this project you can follow me and give the project a star.
 **Microverse**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## 🙏 Credits <a name="credit"></a>
+
+- I would like to give credit for this design to [Murat Korkmaz](https://www.behance.net/muratk)!
+- Design [See](https://www.behance.net/gallery/26425031/Vespa-Responsive-Redesign)
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
 
 <!-- LICENSE -->
 
