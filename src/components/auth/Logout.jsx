@@ -1,24 +1,12 @@
-import axios from 'axios';
+import React from 'react';
+import { useDispatch } from 'react-redux';
+import { logoutUser } from '../../features/auth/authActions';
 
-const Login = () => {
-  const handleLogout = async () => {
-    try {
-      const response = await axios.delete('http://localhost:3000/logout', {
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: localStorage.getItem('token'),
-        },
-      });
+const Logout = () => {
+  const dispatch = useDispatch();
 
-      if (response.status === 200) {
-        console.dir(response.data);
-        // Perform any additional actions you need after successful logout
-      } else {
-        throw new Error(response.data);
-      }
-    } catch (error) {
-      console.error(error);
-    }
+  const handleLogout = () => {
+    dispatch(logoutUser());
   };
 
   return (
@@ -28,4 +16,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Logout;

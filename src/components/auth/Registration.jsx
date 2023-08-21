@@ -1,7 +1,10 @@
-import { useState } from 'react';
-import axios from 'axios';
+import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { registerUser } from '../../features/auth/authActions';
 
 const Registration = () => {
+  const dispatch = useDispatch();
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -14,32 +17,9 @@ const Registration = () => {
     setFormData((prevData) => ({ ...prevData, [name]: value }));
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-
-    try {
-      const response = await axios.post(
-        'http://localhost:3000/signup',
-        {
-          user: formData,
-        },
-        {
-          headers: {
-            'Content-Type': 'application/json',
-          },
-        },
-      );
-
-      if (response.status === 200) {
-        console.log(response.headers.authorization);
-        localStorage.setItem('token', response.headers.authorization);
-        console.dir(response.data);
-      } else {
-        throw new Error(response.statusText);
-      }
-    } catch (error) {
-      console.error(error);
-    }
+    dispatch(registerUser(formData));
   };
 
   return (
@@ -81,7 +61,9 @@ const Registration = () => {
           required
         />
 
-        <button type="submit">Register</button>
+        <button type="submit">
+          Register
+        </button>
       </form>
     </>
   );

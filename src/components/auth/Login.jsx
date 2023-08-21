@@ -1,8 +1,10 @@
-import { useState } from 'react';
-import axios from 'axios';
-import toast from 'react-hot-toast';
+import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { loginUser } from '../../features/auth/authActions';
 
 const Login = () => {
+  const dispatch = useDispatch();
+
   const [formData, setFormData] = useState({
     email: '',
     password: '',
@@ -13,38 +15,9 @@ const Login = () => {
     setFormData((prevData) => ({ ...prevData, [name]: value }));
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-
-    try {
-      const response = await axios.post(
-        'http://localhost:3000/login',
-        {
-          user: formData,
-        },
-        {
-          headers: {
-            'Content-Type': 'application/json',
-          },
-        },
-      );
-
-      if (response.status === 200) {
-        const currentUser = response.data.data;
-        console.log(currentUser);
-        console.log(
-          `User ID: ${currentUser}, User Email: ${currentUser.email}`,
-        );
-        localStorage.setItem('token', response.headers.authorization);
-        toast.success(`User created: ${currentUser.name}`);
-      } else {
-        const errorResponse = response.data || 'An error occurred.';
-        throw new Error(errorResponse);
-      }
-    } catch (error) {
-      toast.error(`Error: ${error}!`);
-      console.error(error);
-    }
+    dispatch(loginUser(formData));
   };
 
   return (
