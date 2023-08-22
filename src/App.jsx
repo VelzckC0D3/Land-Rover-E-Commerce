@@ -5,7 +5,7 @@ import './index.css';
 import Home from './pages/Home';
 import Registration from './components/auth/Registration';
 import Login from './components/auth/Login';
-import Logout from './components/auth/Logout';
+/* import Logout from './components/auth/Logout'; */
 
 import Navbar from './components/Navbar';
 
@@ -18,7 +18,7 @@ const App = () => (
         <Route path="/" element={<Home />} />
         <Route path="/sign_up" element={<Registration />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/logout" element={<Logout />} />
+        {/* <Route path="/logout" element={<Logout />} /> */}
       </Routes>
     </Router>
   </React.StrictMode>

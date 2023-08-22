@@ -1,4 +1,4 @@
-import { useDispatch } from 'react-redux';
+/* import { useDispatch } from 'react-redux';
 import { logoutUser } from '../../features/auth/authActions';
 
 const Logout = () => {
@@ -15,4 +15,4 @@ const Logout = () => {
   );
 };
 
-export default Logout;
+export default Logout; */

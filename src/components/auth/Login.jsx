@@ -1,43 +1,33 @@
-import { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import { useForm } from 'react-hook-form';
 import { loginUser } from '../../features/auth/authActions';
 
 const Login = () => {
   const dispatch = useDispatch();
+  const { register, handleSubmit, formState: { errors } } = useForm();
 
-  const [formData, setFormData] = useState({
-    email: '',
-    password: '',
-  });
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prevData) => ({ ...prevData, [name]: value }));
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const onSubmit = (formData) => {
     dispatch(loginUser(formData));
   };
 
   return (
     <div>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit(onSubmit)}>
         <input
           type="email"
           name="email"
           placeholder="E-mail"
-          value={formData.email}
-          onChange={handleChange}
+          {...register('email', { required: true })}
         />
+        {errors.email && <span>Email is required</span>}
 
         <input
           type="password"
           name="password"
           placeholder="Password"
-          value={formData.password}
-          onChange={handleChange}
+          {...register('password', { required: true })}
         />
+        {errors.password && <span>Password is required</span>}
 
         <button type="submit">Login</button>
       </form>
