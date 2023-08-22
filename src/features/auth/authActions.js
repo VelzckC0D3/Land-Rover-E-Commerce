@@ -73,8 +73,33 @@ export const loginUser = (formData) => async (dispatch) => {
     }
 };
 
-export const logoutUser = () => (dispatch) => {
-    dispatch(logout());
-    toast.success("You've been successfully logged out. Have a great day!");
-    window.location.href = '/';
+export const logoutUser = () => async (dispatch) => {
+    dispatch(authRequest());
+
+    try {
+
+        const response = await axios.delete(
+            'http://127.0.0.1:3000/logout',
+            {
+                headers: {
+                    'Content-Type': 'application/json',
+                    Authorization: localStorage.getItem('token'),
+                },
+            }
+        );
+
+        if (response.status === 200) {
+            dispatch(logout());
+            localStorage.removeItem('token');
+            localStorage.removeItem('tokenExpiration');
+            localStorage.removeItem('user');
+            toast.success('Logout successful!');
+            window.location.href = '/login';
+        } else {
+            throw new Error(response.statusText);
+        }
+    } catch (error) {
+        dispatch(authFailure(error.message));
+        toast.error('Logout failed. Please try again.');
+    }
 };
