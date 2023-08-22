@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { authRequest, authSuccess, authFailure, logout } from './authSlice';
+import { toast } from 'react-hot-toast';
 
 export const registerUser = (formData) => async (dispatch) => {
     dispatch(authRequest());
@@ -24,11 +25,15 @@ export const registerUser = (formData) => async (dispatch) => {
             dispatch(authSuccess({ token, user }));
             localStorage.setItem('token', token);
             localStorage.setItem('tokenExpiration', expirationTime);
+            localStorage.setItem('user', JSON.stringify(user));
+            toast.success('Registration successful!');
+            window.location.href = '/';
         } else {
             throw new Error(response.statusText);
         }
     } catch (error) {
         dispatch(authFailure(error.message));
+        toast.error("Registration failed. Please check your information and try again.");
     }
 };
 
@@ -56,15 +61,20 @@ export const loginUser = (formData) => async (dispatch) => {
             localStorage.setItem('token', token);
             localStorage.setItem('tokenExpiration', expirationTime);
             localStorage.setItem('user', JSON.stringify(user));
+            toast.success(`Welcome, ${user.name}`)
+            window.location.href = '/';
         } else {
             const errorResponse = response.data || 'An error occurred.';
             throw new Error(errorResponse);
         }
     } catch (error) {
         dispatch(authFailure(error.message));
+        toast.error(`Login failed. Please make sure your credentials are correct and try again.`)
     }
 };
 
 export const logoutUser = () => (dispatch) => {
     dispatch(logout());
+    toast.success("You've been successfully logged out. Have a great day!");
+    window.location.href = '/';
 };
