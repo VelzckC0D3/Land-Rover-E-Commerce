@@ -19,9 +19,11 @@ export const registerUser = (formData) => async (dispatch) => {
 
         if (response.status === 200) {
             const token = response.headers.authorization;
-            const user = response.data; // Adjust this based on your API response structure
+            const expirationTime = Date.now() + 24 * 60 * 60 * 1000;
+            const user = response.data.data;
             dispatch(authSuccess({ token, user }));
             localStorage.setItem('token', token);
+            localStorage.setItem('tokenExpiration', expirationTime);
         } else {
             throw new Error(response.statusText);
         }
@@ -49,10 +51,11 @@ export const loginUser = (formData) => async (dispatch) => {
         if (response.status === 200) {
             const token = response.headers.authorization;
             const expirationTime = Date.now() + 24 * 60 * 60 * 1000;
-            const user = response.data.data; // Adjust this based on your API response structure
-            dispatch(authSuccess({ token, user }));  // Use authSuccess here
+            const user = response.data.data;
+            dispatch(authSuccess({ token, user }));
             localStorage.setItem('token', token);
             localStorage.setItem('tokenExpiration', expirationTime);
+            localStorage.setItem('user', JSON.stringify(user));
         } else {
             const errorResponse = response.data || 'An error occurred.';
             throw new Error(errorResponse);

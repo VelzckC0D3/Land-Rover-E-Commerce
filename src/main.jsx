@@ -6,19 +6,19 @@ import { authSuccess } from './features/auth/authSlice'; // Import authSuccess a
 import App from './App';
 import './index.css';
 
+const persistedUser = JSON.parse(localStorage.getItem('user'));
 const persistedToken = localStorage.getItem('token');
 const tokenExpiration = localStorage.getItem('tokenExpiration');
 
-if (persistedToken && tokenExpiration) {
+if (persistedUser && persistedToken && tokenExpiration) {
   const currentTime = Date.now();
 
   if (currentTime < tokenExpiration) {
-    // Token is still valid
-    store.dispatch(authSuccess({ token: persistedToken }));
+    store.dispatch(authSuccess({ token: persistedToken, user: persistedUser }));
   } else {
-    // Token has expired
     localStorage.removeItem('token');
     localStorage.removeItem('tokenExpiration');
+    localStorage.removeItem('user');
   }
 }
 

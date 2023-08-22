@@ -1,5 +1,5 @@
-import { configureStore } from '@reduxjs/toolkit'
-import authReducer from '../features/auth/authSlice'
+import { configureStore } from '@reduxjs/toolkit';
+import authReducer from '../features/auth/authSlice';
 
 const persistedToken = localStorage.getItem('token');
 
@@ -9,7 +9,7 @@ const initialState = {
     user: null,
     loading: false,
     error: null,
-  }
+  },
 };
 
 const store = configureStore({
@@ -19,4 +19,4 @@ const store = configureStore({
   preloadedState: initialState,
 });
 
-export default store
+export default store;
