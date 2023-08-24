@@ -7,7 +7,7 @@ export const registerUser = (formData) => async (dispatch) => {
 
     try {
         const response = await axios.post(
-            'http://127.0.0.1:3001/signup',
+            'http://127.0.0.1:3000/signup',
             {
                 user: formData,
             },
@@ -42,7 +42,7 @@ export const loginUser = (formData) => async (dispatch) => {
 
     try {
         const response = await axios.post(
-            'http://localhost:3001/login',
+            'http://127.0.0.1:3000/login',
             {
                 user: formData,
             },
@@ -69,7 +69,7 @@ export const loginUser = (formData) => async (dispatch) => {
         }
     } catch (error) {
         dispatch(authFailure(error.message));
-        toast.error(`Login failed. Please make sure your credentials are correct and try again.`)
+        toast.error(`Login failed. ${error.message}`)
     }
 };
 
@@ -79,7 +79,7 @@ export const logoutUser = () => async (dispatch) => {
     try {
 
         const response = await axios.delete(
-            'http://127.0.0.1:3001/logout',
+            'http://127.0.0.1:3000/logout',
             {
                 headers: {
                     'Content-Type': 'application/json',

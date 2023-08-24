@@ -20,16 +20,15 @@ function CarDetails() {
     <div className="container container-2">
       <img src={car.main_image} className='main-img' alt={car.name} />
       <div>
-      <h2>{car.name}</h2>
-      <p>Model: {car.model}</p>
-      <p>Price: ${car.price}</p>
-      <p>Year: {car.year}</p>
-      <img src={car.side_image} className='car-img' alt={car.name} />
-      <button>
-        <Link to="/reservation" activeClassName="active" className="nav-link">
+        <p>Model: {car.name}</p>
+        <p>Price: ${car.price}</p>
+        <p>Year: {car.year}</p>
+        <img src={car.side_image} className='car-img' alt={car.name} />
+        <button>
+          <Link to="/reservation" activeClassName="active" className="nav-link">
             Reservation
-        </Link>
-      </button>
+          </Link>
+        </button>
       </div>
     </div>
   );

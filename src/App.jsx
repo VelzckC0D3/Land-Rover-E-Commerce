@@ -8,6 +8,9 @@ import Login from './components/auth/Login';
 import CarDetails from './pages/car_details';
 
 import Navbar from './components/Navbar';
+import Vehicles from './pages/Vehicles';
+import Reservation from './pages/Reservation'
+import My_reservations from './pages/My_reservations'
 
 const App = () => (
   <React.StrictMode>
@@ -16,9 +19,12 @@ const App = () => (
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/vehicles" element={<Vehicles />} />
         <Route path="/sign_up" element={<Registration />} />
         <Route path="/login" element={<Login />} />
         <Route path="/car_details/:carId" element={<CarDetails />} />
+        <Route path="/reservation" element={<Reservation />} />
+        <Route path="/my-reservs" element={<My_reservations />} />
       </Routes>
     </Router>
   </React.StrictMode>

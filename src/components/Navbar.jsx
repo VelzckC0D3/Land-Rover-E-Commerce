@@ -14,8 +14,8 @@ const Navbar = () => {
 
   return (
     <div className="nav">
-     <img src={image} alt="Description" className="logo" />
-     {user && <h2 className="welcome-message">Welcome! {user.name}</h2>}
+      <img src={image} alt="Description" className="logo" />
+      {user && <h2 className="welcome-message">Welcome! {user.name}</h2>}
       <ul>
         {!isAuthenticated && (
           <>
@@ -40,14 +40,20 @@ const Navbar = () => {
             </li>
 
             <li className="nav-link-1">
+              <Link to="/vehicles" className="nav-link">
+                Vehicles
+              </Link>
+            </li>
+
+            <li className="nav-link-1">
               <Link to="/reservation" className="nav-link">
                 Reservation
               </Link>
             </li>
 
-              <li className="nav-link-1">
-              <Link to="/my_reservation" className="nav-link">
-                My Reservation
+            <li className="nav-link-1">
+              <Link to="/my-reservs" className="nav-link">
+                My Reservations
               </Link>
             </li>
             <li className="nav-link-1">
