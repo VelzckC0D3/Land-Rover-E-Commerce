@@ -7,7 +7,7 @@ export const registerUser = (formData) => async (dispatch) => {
 
     try {
         const response = await axios.post(
-            'http://127.0.0.1:3000/signup',
+            'http://127.0.0.1:3001/signup',
             {
                 user: formData,
             },
@@ -42,7 +42,7 @@ export const loginUser = (formData) => async (dispatch) => {
 
     try {
         const response = await axios.post(
-            'http://localhost:3000/login',
+            'http://localhost:3001/login',
             {
                 user: formData,
             },
@@ -79,7 +79,7 @@ export const logoutUser = () => async (dispatch) => {
     try {
 
         const response = await axios.delete(
-            'http://127.0.0.1:3000/logout',
+            'http://127.0.0.1:3001/logout',
             {
                 headers: {
                     'Content-Type': 'application/json',
