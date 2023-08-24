@@ -7,10 +7,8 @@ function CarDetails() {
   const { carId } = useParams();
 
   const cars = useSelector((state) => state.car.data);
-  console.log(cars)
 
   const car = cars.find((car) => car.id === parseInt(carId));
-  console.log(car)
 
   if (!car) {
     return <div>Car not found</div>;
@@ -22,8 +20,7 @@ function CarDetails() {
       <div>
         <p>Model: {car.name}</p>
         <p>Price: ${car.price}</p>
-        <p>Year: {car.year}</p>
-        <img src={car.side_image} className='car-img' alt={car.name} />
+        <img src={car.front_image} className='car-img' alt={car.name} />
         <button>
           <Link to="/reservation" activeClassName="active" className="nav-link">
             Reservation

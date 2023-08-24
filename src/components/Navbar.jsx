@@ -19,20 +19,34 @@ const Navbar = () => {
       <ul>
         {!isAuthenticated && (
           <>
-            <li>
-              <Link to="/sign_up">
+            <li className='nav-link-1'>
+              <Link to="/sign_up" className="nav-link">
                 Sign Up
               </Link>
             </li>
-            <li>
-              <Link to="/login">
+
+            <li className='nav-link-1'>
+              <Link to="/login" className="nav-link">
                 Login
+              </Link>
+            </li>
+
+            <li className="nav-link-1">
+              <Link to="/" className="nav-link">
+                Home
+              </Link>
+            </li>
+
+            <li className="nav-link-1">
+              <Link to="/vehicles" className="nav-link">
+                Vehicles
               </Link>
             </li>
           </>
         )}
         {isAuthenticated && (
           <ul className='nav-ul'>
+
             <li className="nav-link-1">
               <Link to="/" className="nav-link">
                 Home

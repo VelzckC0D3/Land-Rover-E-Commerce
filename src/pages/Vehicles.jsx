@@ -41,8 +41,9 @@ function Vehicles() {
                         {cars.data.map((car) => (
                             <Link to={`/car_details/${car.id}`} key={car.id}>
                                 <div className='car-div'>
-                                    <img src={car.main_image} className='car-img' alt={car.name} />
-                                    <h4>Model: {car.name}</h4>
+                                    <img src={car.front_image} className='car-img' alt={car.name} />
+                                    <h4>{car.name}</h4>
+                                    <p>{car.description}</p>
                                 </div>
                             </Link>
                         ))}
