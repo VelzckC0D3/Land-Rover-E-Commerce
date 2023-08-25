@@ -12,6 +12,8 @@ const Navbar = () => {
     dispatch(logoutUser());
   };
 
+  const isAdmin = user && user.role === 'admin';
+
   return (
     <div className="nav">
       <img src={image} alt="Description" className="logo" />
@@ -70,6 +72,23 @@ const Navbar = () => {
                 My Reservations
               </Link>
             </li>
+
+            {isAdmin && (
+              <li className="nav-link-1">
+                <Link to="/addcars" className="nav-link">
+                  New vehicle
+                </Link>
+              </li>
+            )}
+
+            {isAdmin && (
+              <li className="nav-link-1">
+                <Link to="/deletecars" className="nav-link">
+                  Delete vehicle
+                </Link>
+              </li>
+            )}
+
             <li className="nav-link-1">
               <Link onClick={handleLogout} className="nav-link">Logout</Link>
             </li>
