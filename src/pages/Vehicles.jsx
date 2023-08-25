@@ -9,50 +9,39 @@ function Vehicles() {
     const cars = useSelector((state) => state.car);
     const carContainerRef = useRef(null);
 
-    const scrollLeft = () => {
+    const handleScroll = (scrollOffset) => {
         if (carContainerRef.current) {
-            carContainerRef.current.scrollLeft -= 200;
-        }
-    };
-
-    const scrollRight = () => {
-        if (carContainerRef.current) {
-            carContainerRef.current.scrollLeft += 200;
+            carContainerRef.current.scrollLeft += scrollOffset;
         }
     };
 
     useEffect(() => {
-        if (cars.status === 'idle') {
-            dispatch(fetchCars());
-        }
-    }, [cars.status, dispatch]);
+        dispatch(fetchCars());
+    }, [dispatch]);
 
     return (
         <div className="container">
             <h1>List Of Vehicles</h1>
-            {cars.status === 'loading' && <div>Loading...</div>}
-            {cars.status === 'failed' && <div>{cars.error}</div>}
-            {cars.status === 'succeeded' && (
-                <div className='big-div'>
-                    <button className='scroll-button' onClick={scrollLeft}>
-                        <BsCaretLeft className="fs-5" />
-                    </button>
-                    <div className='car-container' ref={carContainerRef}>
-                        {cars.data.map((car) => (
-                            <Link to={`/car_details/${car.id}`} key={car.id}>
-                                <div className='car-div'>
-                                    <img src={car.front_image} className='car-img' alt={car.name} />
-                                    <h4>{car.name}</h4>
-                                    <p>{car.description}</p>
-                                </div>
-                            </Link>
-                        ))}
-                    </div>
-                    <button className='scroll-button' onClick={scrollRight}>
-                        <BsCaretRight className="fs-5" />
-                    </button>
+            <div className='big-div'>
+                <button className='scroll-button' onClick={() => handleScroll(-200)}>
+                    <BsCaretLeft className="fs-5" />
+                </button>
+                <div className='car-container' ref={carContainerRef}>
+                    {cars.data.length === 0 && <p>No cars found.</p>}
+                    {cars.data.map((car) => (
+                        <Link to={`/car_details/${car.id}`} key={car.id}>
+                            <div className='car-div'>
+                                <img src={car.front_image} className='car-img' alt={car.name} />
+                                <h4>{car.name}</h4>
+                                <p>{car.description}</p>
+                            </div>
+                        </Link>
+                    ))}
                 </div>
-            )}
+                <button className='scroll-button' onClick={() => handleScroll(200)}>
+                    <BsCaretRight className="fs-5" />
+                </button>
+            </div>
         </div>
     );
 }

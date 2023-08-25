@@ -1,9 +1,8 @@
 import { useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { fetchCars, deleteCar } from '../../features/cars/carSlice';
-import { toast } from 'react-hot-toast';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchCars, deleteCar } from '../../features/cars/carSlice'; // Update with the correct import path
 
-const CarList = () => {
+function DeleteCarPage() {
     const dispatch = useDispatch();
     const cars = useSelector((state) => state.car.data);
 
@@ -12,32 +11,29 @@ const CarList = () => {
     }, [dispatch]);
 
     const handleDelete = (carId) => {
-        dispatch(deleteCar(carId))
-            .then(() => {
-                toast.success('Car deleted successfully.');
-            })
-            .catch((error) => {
-                toast.error('Error deleting car:', error);
-            });
+        dispatch(deleteCar(carId)); // Make sure the deleteCar action is correctly defined and imported
     };
 
     return (
         <div>
-            <h2>Car List</h2>
-            {cars.length > 0 ? (
+            <h2>Delete Cars</h2>
+            {cars.length === 0 ? (
+                <p>No cars found.</p>
+            ) : (
                 <ul>
                     {cars.map((car) => (
                         <li key={car.id}>
-                            <h2>{car.name}</h2>
+                            <p>Name: {car.name}</p>
+                            <p>Price: {car.price}</p>
+                            <p>Description: {car.description}</p>
+                            {/* Display other car information */}
                             <button onClick={() => handleDelete(car.id)}>Delete</button>
                         </li>
                     ))}
                 </ul>
-            ) : (
-                <p>Vehicles not found.</p>
             )}
         </div>
     );
-};
+}
 
-export default CarList;
+export default DeleteCarPage;

@@ -1,127 +1,49 @@
-import { useDispatch, useSelector } from 'react-redux';
-import { addCar } from '../../features/cars/carSlice';
-import { useForm, Controller } from 'react-hook-form';
+import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { addCar } from '../../features/cars/carSlice'; // Update with the correct import path
+import { toast } from 'react-hot-toast';
 
-const AddCar = () => {
+function AddCarForm() {
     const dispatch = useDispatch();
-    const user = useSelector((state) => state.auth.user);
-    const { control, handleSubmit, formState: { errors } } = useForm();
+    const initialFormData = {
+        name: '',
+        price: '',
+        description: '',
+        front_image: '',
+        back_image: '',
+        interior_image: ''
+    };
+    const [formData, setFormData] = useState(initialFormData);
 
-    const onSubmit = (formData) => {
-        dispatch(addCar(formData));
+    const handleInputChange = (event) => {
+        const { name, value } = event.target;
+        setFormData((prevData) => ({
+            ...prevData,
+            [name]: value
+        }));
     };
 
-    const isAdmin = user && user.role === 'admin';
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        dispatch(addCar(formData)).then(() => {
+            // Car added successfully, reset form fields
+            setFormData(initialFormData);
+            // Show a success toast message
+            toast.success('Vehicle added successfully!');
+        });
+    };
 
     return (
-        isAdmin && (
-            <form onSubmit={handleSubmit(onSubmit)}>
-                <Controller
-                    name="name"
-                    control={control}
-                    defaultValue=""
-                    rules={{ required: true }}
-                    render={({ field }) => (
-                        <div>
-                            <input
-                                type="text"
-                                placeholder="Model"
-                                {...field}
-                            />
-                            {errors.name && <span>This field is required</span>}
-                        </div>
-                    )}
-                />
-
-                <Controller
-                    name="price"
-                    control={control}
-                    defaultValue=""
-                    rules={{ required: true }}
-                    render={({ field }) => (
-                        <div>
-                            <input
-                                type="number"
-                                placeholder="Price"
-                                {...field}
-                            />
-                            {errors.price && <span>This field is required</span>}
-                        </div>
-                    )}
-                />
-
-                <Controller
-                    name="description"
-                    control={control}
-                    defaultValue=""
-                    rules={{ required: true }}
-                    render={({ field }) => (
-                        <div>
-                            <input
-                                type="text"
-                                placeholder="Description"
-                                {...field}
-                            />
-                            {errors.description && <span>This field is required</span>}
-                        </div>
-                    )}
-                />
-
-                <Controller
-                    name="front_image"
-                    control={control}
-                    defaultValue=""
-                    rules={{ required: true }}
-                    render={({ field }) => (
-                        <div>
-                            <input
-                                type="text"
-                                placeholder="Front image"
-                                {...field}
-                            />
-                            {errors.front_image && <span>This field is required</span>}
-                        </div>
-                    )}
-                />
-
-                <Controller
-                    name="back_image"
-                    control={control}
-                    defaultValue=""
-                    rules={{ required: true }}
-                    render={({ field }) => (
-                        <div>
-                            <input
-                                type="text"
-                                placeholder="Back image"
-                                {...field}
-                            />
-                            {errors.back_image && <span>This field is required</span>}
-                        </div>
-                    )}
-                />
-
-                <Controller
-                    name="interior_image"
-                    control={control}
-                    defaultValue=""
-                    rules={{ required: true }}
-                    render={({ field }) => (
-                        <div>
-                            <input
-                                type="text"
-                                placeholder="Interior image"
-                                {...field}
-                            />
-                            {errors.interior_image && <span>This field is required</span>}
-                        </div>
-                    )}
-                />
-
-                <button type="submit">Add Car</button>
-            </form>
-        )
+        <form onSubmit={handleSubmit}>
+            <input type="text" name="name" placeholder="Name" value={formData.name} onChange={handleInputChange} />
+            <input type="text" name="price" placeholder="Price" value={formData.price} onChange={handleInputChange} />
+            <textarea name="description" placeholder="Description" value={formData.description} onChange={handleInputChange} />
+            <input type="text" name="front_image" placeholder="Front Image URL" value={formData.front_image} onChange={handleInputChange} />
+            <input type="text" name="back_image" placeholder="Back Image URL" value={formData.back_image} onChange={handleInputChange} />
+            <input type="text" name="interior_image" placeholder="Interior Image URL" value={formData.interior_image} onChange={handleInputChange} />
+            <button type="submit">Add Car</button>
+        </form>
     );
-};
+}
 
-export default AddCar;
+export default AddCarForm;
