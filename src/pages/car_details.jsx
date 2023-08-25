@@ -1,6 +1,6 @@
-import { Link } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 import '../assets/style/Home.css';
 
 function CarDetails() {
@@ -21,11 +21,9 @@ function CarDetails() {
         <p>Model: {car.name}</p>
         <p>Price: ${car.price}</p>
         <img src={car.front_image} className='car-img' alt={car.name} />
-        <button>
-          <Link to="/reservation" activeClassName="active" className="nav-link">
-            Reservation
-          </Link>
-        </button>
+        <Link to={`/reservation/${car.id}`} className="nav-link">
+          <button>Make Reservation</button>
+        </Link>
       </div>
     </div>
   );

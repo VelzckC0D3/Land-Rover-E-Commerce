@@ -10,6 +10,7 @@ import CarDetails from './pages/car_details';
 import Navbar from './components/Navbar';
 import Vehicles from './pages/Vehicles';
 import Reservation from './pages/Reservation'
+import ReservationForm from './components/ReservationForm'
 import My_reservations from './pages/My_reservations'
 
 const App = () => (
@@ -24,6 +25,7 @@ const App = () => (
         <Route path="/login" element={<Login />} />
         <Route path="/car_details/:carId" element={<CarDetails />} />
         <Route path="/reservation" element={<Reservation />} />
+        <Route path="/reservation/:carId" element={<ReservationForm />} />
         <Route path="/my-reservs" element={<My_reservations />} />
       </Routes>
     </Router>
