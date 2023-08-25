@@ -11,8 +11,14 @@ const reservationSlice = createSlice({
         addReservation: (state, action) => {
             state.reservations.push(action.payload);
         },
+        removeReservation: (state, action) => {
+            const index = state.reservations.findIndex(reservation => reservation.id === action.payload);
+            if (index !== -1) {
+                state.reservations.splice(index, 1);
+            }
+        },
     },
 });
 
-export const { addReservation } = reservationSlice.actions;
+export const { addReservation, removeReservation } = reservationSlice.actions;
 export default reservationSlice.reducer;
