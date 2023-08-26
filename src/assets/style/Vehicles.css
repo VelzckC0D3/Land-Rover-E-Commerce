@@ -1,0 +1,37 @@
+.container-2 {
+  display: flex;
+  justify-content: space-around;
+}
+
+.car-img {
+  width: 12rem;
+  height: 12rem;
+  border-radius: 50%;
+}
+
+.main-img {
+  width: 30vw;
+  height: 65vh;
+  border-radius: 50px;
+}
+
+.car-div {
+  margin: 0 1rem 0 2rem;
+  border: #f3f3f3 1pc solid;
+}
+
+.big-div {
+  display: flex;
+}
+
+.scroll-button {
+  background-color: #98ff22;
+  width: 4rem;
+  height: 3rem;
+}
+
+.scroll-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  background-color: #f3f3f3;
+}

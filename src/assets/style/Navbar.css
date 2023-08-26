@@ -1,0 +1,106 @@
+.navButton {
+  font-size: 2rem;
+  margin: 0.5rem 1rem;
+  z-index: 5;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: all 0.5s ease-in-out;
+  text-align: center;
+  stroke-width: 3.5px;
+  cursor: pointer;
+}
+
+.btnActive {
+  transform: rotate(360deg);
+  color:  rgb(151,191,15);
+}
+
+.navCont {
+  background-color: rgb(255, 255, 255);
+  left: 0;
+  top: 0;
+  position: absolute;
+  height: 100vh;
+  width: 13rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding: 4rem 0;
+  box-shadow: 10px 0 10px rgba(0, 0, 0, 0);
+  transform: translateX(-25rem);
+  transition: transform 0.5s ease-in-out, box-shadow 1s ease-in-out;
+  justify-content: space-between;
+}
+
+.active {
+  transform: translateX(0);
+  box-shadow: 10px 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.nav-logo {
+  width: 100%;
+  padding: 0 1rem;
+  opacity: 0.8;
+  cursor: pointer;
+}
+
+.divider {
+    width: 90%;
+    height: 2px;
+    background-color:  rgb(151,191,15);
+}
+
+.linksCont {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.navLink {
+  width: 100%;
+  height: 4rem;
+}
+
+.navAnchor {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 0 1rem;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.navAnchor:visited {
+  color: black;
+}
+
+.navFooter {
+    padding: 0 1rem;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+    align-items: flex-start;
+    background-color: rgb(253, 253, 253);
+    justify-self: flex-end !important;
+    gap: 0.5rem;
+}
+
+.navIcons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1.5rem;
+    color: rgb(104, 104, 104);
+}
+
+.navCopryright {
+    font-size: 0.8rem;
+    color: rgb(126, 126, 126);
+}

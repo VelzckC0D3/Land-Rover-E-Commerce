@@ -1,37 +1,37 @@
-.container-2 {
+.homeCont {
+  width: 100%;
   display: flex;
-  justify-content: space-around;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  gap: 2rem;
+  background-color: rgb(255, 180, 0);
 }
 
-.car-img {
-  width: 12rem;
-  height: 12rem;
-  border-radius: 50%;
+.homeTitle {
+  font-family: 'Bruno Ace', cursive;
+  -webkit-text-stroke: 2px;
+  letter-spacing: 0.4rem;
+  color: white;
 }
 
-.main-img {
-  width: 30vw;
-  height: 65vh;
-  border-radius: 50px;
-}
-
-.car-div {
-  margin: 0 1rem 0 2rem;
-  border: #f3f3f3 1pc solid;
-}
-
-.big-div {
+.actionBtn {
+  border: none;
+  background-color: rgb(151, 191, 15);
   display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: 40px;
+  color: white;
+  font-size: 1rem;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
 }
 
-.scroll-button {
-  background-color: #98ff22;
-  width: 4rem;
-  height: 3rem;
-}
-
-.scroll-button:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
-  background-color: #f3f3f3;
+.actionBtn:hover {
+    transform: scale(1.1);
+    background-color: rgb(123, 156, 12);
 }
