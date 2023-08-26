@@ -1,7 +1,7 @@
 import { useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import '../assets/style/Home.css';
+import '../../assets/style/Home.css';
 
 function CarDetails() {
   const { carId } = useParams();

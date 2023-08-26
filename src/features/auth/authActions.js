@@ -65,7 +65,7 @@ export const logoutUser = () => async (dispatch, getState) => {
 
         if (response.status === 200) {
             dispatch(logout());
-            toast.success('Logout successful!');
+            window.location.href = '/'
         } else {
             throw new Error(response.statusText);
         }

@@ -1,10 +1,12 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { addCar } from '../../features/cars/carSlice'; // Update with the correct import path
 import { toast } from 'react-hot-toast';
 
 function AddCarForm() {
     const dispatch = useDispatch();
+    const navigate = useNavigate();
     const initialFormData = {
         name: '',
         price: '',
@@ -30,6 +32,8 @@ function AddCarForm() {
             setFormData(initialFormData);
             // Show a success toast message
             toast.success('Vehicle added successfully!');
+            // Redirect to "/vehicles"
+            navigate('/vehicles')
         });
     };
 

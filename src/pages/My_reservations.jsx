@@ -1,85 +1,49 @@
-/* import { useState, useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { removeReservation } from "../features/reservation/reservActions";
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchReservations, deleteReservation } from '../features/reservation/reservSlice';
+import { fetchCars } from '../features/cars/carSlice';
 
-function Reservation() {
-    const [reservations, setReservations] = useState([]);
-    const [carDetails, setCarDetails] = useState({});
-
+function UserReservation() {
     const dispatch = useDispatch();
-    const loggedInUserId = useSelector(state => state.auth.user.id);
+    const reservations = useSelector((state) => state.reserv.data);
+    const cars = useSelector((state) => state.car.data);
+    const authUser = useSelector((state) => state.auth.user);
 
     useEffect(() => {
-        fetch("http://127.0.0.1:3000/api/v1/reservations")
-            .then(response => response.json())
-            .then(data => {
-                if (data.success) {
+        dispatch(fetchReservations());
+        dispatch(fetchCars());
+    }, [dispatch]);
 
-                    const userReservations = data.details.filter(reservation => reservation.user_id === loggedInUserId);
-                    setReservations(userReservations);
-
-                    fetch("http://127.0.0.1:3000/api/v1/cars")
-                        .then(response => response.json())
-                        .then(carData => {
-                            if (carData.success) {
-                                const carDetailsMap = {};
-                                carData.details.forEach(car => {
-                                    carDetailsMap[car.id] = car.name;
-                                });
-                                setCarDetails(carDetailsMap);
-                            }
-                        })
-                        .catch(error => {
-                            console.error("Error fetching car data:", error);
-                        });
-                }
-            })
-            .catch(error => {
-                console.error("Error fetching reservation data:", error);
-            });
-    }, [loggedInUserId]);
-
-    const handleDeleteReservation = (reservationId) => {
-
-        fetch(`http://127.0.0.1:3000/api/v1/reservations/${reservationId}`, {
-            method: "DELETE",
-        })
-            .then(response => response.json())
-            .then(data => {
-                if (data.success) {
-
-                    dispatch(removeReservation(reservationId));
-
-                    setReservations(prevReservations => prevReservations.filter(reservation => reservation.id !== reservationId));
-                }
-            })
-            .catch(error => {
-                console.error("Error deleting reservation:", error);
-            });
+    const handleDelete = (reservationId) => {
+        dispatch(deleteReservation(reservationId));
     };
+
+    const getCarName = (carId) => {
+        const car = cars.find((car) => car.id === carId);
+        return car ? car.name : 'Unknown Car';
+    };
+
+    const userReservations = reservations.filter((reservation) => reservation.user_id === authUser.id);
 
     return (
         <div>
-            {reservations.length > 0 ? (
-                <div>
-                    <h2>Reservation Details</h2>
-                    <ul>
-                        {reservations.map(reservation => (
-                            <li key={reservation.id}>
-                                <p>City: {reservation.city}</p>
-                                <p>Date: {reservation.date}</p>
-                                <p>Car Model: {carDetails[reservation.car_id]}</p>
-                                <button onClick={() => handleDeleteReservation(reservation.id)}>Delete</button>
-                            </li>
-                        ))}
-                    </ul>
-                </div>
+            <h2>Reservations</h2>
+            {userReservations.length === 0 ? (
+                <p>No reservations found.</p>
             ) : (
-                <p>No reservation data found.</p>
+                <ul>
+                    {userReservations.map((reservation) => (
+                        <li key={reservation.id}>
+                            <p>{getCarName(reservation.car_id)}</p>
+                            <p>{reservation.city}</p>
+                            <p>{reservation.date}</p>
+                            <button onClick={() => handleDelete(reservation.id)}>Delete</button>
+                        </li>
+                    ))}
+                </ul>
             )}
         </div>
     );
 }
 
-export default Reservation;
- */
+export default UserReservation;

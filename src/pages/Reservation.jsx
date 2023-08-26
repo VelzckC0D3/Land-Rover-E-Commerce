@@ -3,8 +3,10 @@ import { useDispatch, useSelector } from 'react-redux';
 import { addReservation } from '../features/reservation/reservSlice';
 import { fetchCars } from '../features/cars/carSlice'
 import { toast } from 'react-hot-toast';
+import { useNavigate } from 'react-router-dom';
 
 function AddReservationPage() {
+    const navigate = useNavigate();
     const dispatch = useDispatch();
     const cars = useSelector((state) => state.car.data);
     const userId = useSelector((state) => state.auth.user.id);
@@ -36,6 +38,8 @@ function AddReservationPage() {
             setFormData(initialFormData);
             // Show a success toast message
             toast.success('Reservation added successfully!');
+            // Redirect to "My Reservations"
+            navigate('/my-reservs')
         });
     };
 

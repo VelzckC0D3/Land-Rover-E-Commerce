@@ -3,17 +3,19 @@ import { useDispatch, useSelector } from 'react-redux';
 import { addReservation } from '../../features/reservation/reservSlice';
 import { fetchCars } from '../../features/cars/carSlice'
 import { toast } from 'react-hot-toast';
-import { useParams } from 'react-router-dom'; // Import useParams
+import { useParams } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 function AddReservationPage() {
-    const { carId } = useParams(); // Extract carId from URL parameters
+    const navigate = useNavigate();
+    const { carId } = useParams();
     const dispatch = useDispatch();
     const userId = useSelector((state) => state.auth.user.id);
     const initialFormData = {
         city: '',
         date: '',
         user_id: userId,
-        car_id: carId // Use the carId extracted from URL
+        car_id: carId
     };
 
     useEffect(() => {
@@ -37,6 +39,8 @@ function AddReservationPage() {
             setFormData(initialFormData);
             // Show a success toast message
             toast.success('Reservation added successfully!');
+            // redirect to "/My-Reservations"
+            navigate('/my-reservs')
         });
     };
 
