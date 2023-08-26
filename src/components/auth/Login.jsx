@@ -1,17 +1,21 @@
 import { useDispatch } from 'react-redux';
 import { useForm } from 'react-hook-form';
 import { loginUser } from '../../features/auth/authActions';
+import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const { register, handleSubmit, formState: { errors } } = useForm();
 
   const onSubmit = (formData) => {
     dispatch(loginUser(formData));
+    navigate('/')
   };
 
   return (
-    <div>
+    <div className='container'>
+      <h2>Login</h2>
       <form onSubmit={handleSubmit(onSubmit)}>
         <input
           type="email"

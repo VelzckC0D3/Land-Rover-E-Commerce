@@ -12,20 +12,35 @@ const Navbar = () => {
     dispatch(logoutUser());
   };
 
+  const isAdmin = user && user.role === 'admin';
+
   return (
     <div className="nav">
-     <img src={image} alt="Description" className="logo" />
-     {user && <h2 className="welcome-message">Welcome! {user.name}</h2>}
+      <img src={image} alt="Description" className="logo" />
+      {user && <h2 className="welcome-message">Welcome! {user.name}</h2>}
       <ul>
         {!isAuthenticated && (
           <>
-            <li>
-              <Link to="/sign_up">
+            <li className="nav-link-1">
+              <Link to="/" className="nav-link">
+                Home
+              </Link>
+            </li>
+
+            <li className="nav-link-1">
+              <Link to="/vehicles" className="nav-link">
+                Vehicles
+              </Link>
+            </li>
+
+            <li className='nav-link-1'>
+              <Link to="/sign_up" className="nav-link">
                 Sign Up
               </Link>
             </li>
-            <li>
-              <Link to="/login">
+
+            <li className='nav-link-1'>
+              <Link to="/login" className="nav-link">
                 Login
               </Link>
             </li>
@@ -33,9 +48,16 @@ const Navbar = () => {
         )}
         {isAuthenticated && (
           <ul className='nav-ul'>
+
             <li className="nav-link-1">
               <Link to="/" className="nav-link">
                 Home
+              </Link>
+            </li>
+
+            <li className="nav-link-1">
+              <Link to="/vehicles" className="nav-link">
+                Vehicles
               </Link>
             </li>
 
@@ -45,11 +67,28 @@ const Navbar = () => {
               </Link>
             </li>
 
-              <li className="nav-link-1">
-              <Link to="/my_reservation" className="nav-link">
-                My Reservation
+            <li className="nav-link-1">
+              <Link to="/my-reservs" className="nav-link">
+                My Reservations
               </Link>
             </li>
+
+            {isAdmin && (
+              <li className="nav-link-1">
+                <Link to="/addcars" className="nav-link">
+                  New vehicle
+                </Link>
+              </li>
+            )}
+
+            {isAdmin && (
+              <li className="nav-link-1">
+                <Link to="/deletecars" className="nav-link">
+                  Delete vehicle
+                </Link>
+              </li>
+            )}
+
             <li className="nav-link-1">
               <Link onClick={handleLogout} className="nav-link">Logout</Link>
             </li>
