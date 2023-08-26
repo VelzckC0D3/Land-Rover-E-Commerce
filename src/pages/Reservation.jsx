@@ -51,6 +51,7 @@ function AddReservationPage() {
                     City:
                     <input type="text" name="city" value={formData.city} onChange={handleInputChange} />
                 </label>
+
                 <label>
                     Date:
                     <input
@@ -62,17 +63,16 @@ function AddReservationPage() {
                     />
 
                 </label>
-                <label>
-                    Car ID:
-                    <select name="car_id" value={formData.car_id} onChange={handleInputChange}>
-                        <option value="">Select a car</option>
-                        {cars.map((car) => (
-                            <option key={car.id} value={car.id}>
-                                {car.name}
-                            </option>
-                        ))}
-                    </select>
-                </label>
+
+                <select name="car_id" value={formData.car_id} onChange={handleInputChange}>
+                    <option value="">Select a car</option>
+                    {cars.map((car) => (
+                        <option key={car.id} value={car.id}>
+                            {car.name}
+                        </option>
+                    ))}
+                </select>
+
                 <button type="submit">Add Reservation</button>
             </form>
         </div>

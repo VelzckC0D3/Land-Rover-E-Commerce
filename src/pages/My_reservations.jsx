@@ -26,7 +26,7 @@ function UserReservation() {
     const userReservations = reservations.filter((reservation) => reservation.user_id === authUser.id);
 
     return (
-        <div>
+        <div className='container'>
             <h2>Reservations</h2>
             {userReservations.length === 0 ? (
                 <p>No reservations found.</p>
@@ -34,10 +34,11 @@ function UserReservation() {
                 <ul>
                     {userReservations.map((reservation) => (
                         <li key={reservation.id}>
-                            <p>{getCarName(reservation.car_id)}</p>
-                            <p>{reservation.city}</p>
-                            <p>{reservation.date}</p>
+                            <p>Model: {getCarName(reservation.car_id)}</p>
+                            <p>City: {reservation.city}</p>
+                            <p>Date: {reservation.date}</p>
                             <button onClick={() => handleDelete(reservation.id)}>Delete</button>
+                            <hr />
                         </li>
                     ))}
                 </ul>

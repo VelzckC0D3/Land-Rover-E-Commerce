@@ -15,19 +15,18 @@ function DeleteCarPage() {
     };
 
     return (
-        <div>
-            <h2>Delete Cars</h2>
+        <div className='container'>
+            <h2>Delete Vehicles</h2>
             {cars.length === 0 ? (
-                <p>No cars found.</p>
+                <p>No vehicles found.</p>
             ) : (
                 <ul>
                     {cars.map((car) => (
                         <li key={car.id}>
                             <p>Model: {car.name}</p>
                             <p>Price: {car.price}</p>
-                            <p>Description: {car.description}</p>
-                            {/* Display other car information */}
                             <button onClick={() => handleDelete(car.id)}>Delete</button>
+                            <hr />
                         </li>
                     ))}
                 </ul>
