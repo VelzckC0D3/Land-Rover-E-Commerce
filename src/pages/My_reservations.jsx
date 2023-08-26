@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchReservations, deleteReservation } from '../features/reservation/reservSlice';
 import { fetchCars } from '../features/cars/carSlice';
+import { toast } from 'react-hot-toast';
 
 function UserReservation() {
     const dispatch = useDispatch();
@@ -16,6 +17,7 @@ function UserReservation() {
 
     const handleDelete = (reservationId) => {
         dispatch(deleteReservation(reservationId));
+        toast.success("Reservation Deleted!")
     };
 
     const getCarName = (carId) => {

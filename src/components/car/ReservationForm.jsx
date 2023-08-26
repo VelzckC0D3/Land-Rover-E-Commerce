@@ -50,7 +50,7 @@ function AddReservationPage() {
             <form onSubmit={handleSubmit}>
                 <label>
                     City:
-                    <input type="text" name="city" value={formData.city} onChange={handleInputChange} />
+                    <input type="text" name="city" value={formData.city} onChange={handleInputChange} required />
                 </label>
                 <label>
                     Date:
@@ -59,7 +59,8 @@ function AddReservationPage() {
                         name="date"
                         value={formData.date}
                         onChange={handleInputChange}
-                        min={new Date().toISOString().split('T')[0]} // Set the min attribute to today's date
+                        min={new Date().toISOString().split('T')[0]}
+                        required
                     />
 
                 </label>
