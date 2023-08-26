@@ -18,6 +18,8 @@ export const registerUser = (formData) => async (dispatch) => {
             const token = response.headers.authorization;
             const user = response.data.data;
             dispatch(authSuccess({ token, user }));
+            localStorage.setItem('token', token);
+            localStorage.setItem('user', JSON.stringify(user));
             toast.success('Registration successful!');
         } else {
             throw new Error(response.statusText);
@@ -42,6 +44,8 @@ export const loginUser = (formData) => async (dispatch) => {
             const token = response.headers.authorization;
             const user = response.data.data;
             dispatch(authSuccess({ token, user }));
+            localStorage.setItem('token', token);
+            localStorage.setItem('user', JSON.stringify(user));
             toast.success(`Welcome, ${user.name}`);
         } else {
             const errorResponse = response.data || 'An error occurred.';
@@ -65,6 +69,8 @@ export const logoutUser = () => async (dispatch, getState) => {
 
         if (response.status === 200) {
             dispatch(logout());
+            localStorage.removeItem('token');
+            localStorage.removeItem('user');
             window.location.href = '/'
         } else {
             throw new Error(response.statusText);
