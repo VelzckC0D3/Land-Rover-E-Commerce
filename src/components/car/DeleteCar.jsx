@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchCars, deleteCar } from '../../features/cars/carSlice'; // Update with the correct import path
+import { fetchCars, deleteCar } from '../../features/cars/carSlice';
+import { toast } from 'react-hot-toast';
 
 function DeleteCarPage() {
     const dispatch = useDispatch();
@@ -11,7 +12,8 @@ function DeleteCarPage() {
     }, [dispatch]);
 
     const handleDelete = (carId) => {
-        dispatch(deleteCar(carId)); // Make sure the deleteCar action is correctly defined and imported
+        dispatch(deleteCar(carId));
+        toast.success(`Vehicle Deleted!`)
     };
 
     return (
