@@ -42,7 +42,7 @@ function AddCarForm() {
             <h2>Add New Vehicle</h2>
             <form onSubmit={handleSubmit}>
                 <input type="text" name="name" placeholder="Model" value={formData.name} onChange={handleInputChange} />
-                <input type="text" name="price" placeholder="Price" value={formData.price} onChange={handleInputChange} />
+                <input type="number" name="price" placeholder="Price" value={formData.price} onChange={handleInputChange} />
                 <textarea name="description" placeholder="Description" value={formData.description} onChange={handleInputChange} />
                 <input type="text" name="front_image" placeholder="Front Image URL" value={formData.front_image} onChange={handleInputChange} />
                 <input type="text" name="back_image" placeholder="Back Image URL" value={formData.back_image} onChange={handleInputChange} />
