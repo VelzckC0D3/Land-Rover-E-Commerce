@@ -24,6 +24,7 @@ function CarDetails() {
         <Link to={`/reservation/${car.id}`} className="nav-link">
           <button>Make Reservation</button>
         </Link>
+
       </div>
     </div>
   );

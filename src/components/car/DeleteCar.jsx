@@ -23,7 +23,7 @@ function DeleteCarPage() {
                 <ul>
                     {cars.map((car) => (
                         <li key={car.id}>
-                            <p>Name: {car.name}</p>
+                            <p>Model: {car.name}</p>
                             <p>Price: {car.price}</p>
                             <p>Description: {car.description}</p>
                             {/* Display other car information */}

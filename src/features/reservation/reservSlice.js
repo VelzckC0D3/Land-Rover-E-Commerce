@@ -1,24 +1,68 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import axios from 'axios';
 
+// API URL
+const apiURL = 'http://127.0.0.1:3000';
+
+// Thunks
+export const fetchReservations = createAsyncThunk('reservation/fetchReservations', async () => {
+    const response = await axios.get(`${apiURL}/api/v1/reservations`);
+    return response.data; // Assuming your API response directly contains the reservation data
+});
+
+export const addReservation = createAsyncThunk('reservation/addReservation', async (formData) => {
+    const response = await axios.post(`${apiURL}/api/v1/reservations`, { reservation: formData }); // Assuming your API expects the reservation data wrapped in "reservation" object
+    return response.data; // Assuming your API response directly contains the added reservation data
+});
+
+export const deleteReservation = createAsyncThunk('reservation/deleteReservation', async (reservId) => {
+    await axios.delete(`${apiURL}/api/v1/reservations/${reservId}`);
+    return reservId; // Return the deleted reservation's ID to update the state
+});
+
+// Initial state
 const initialState = {
-    reservations: [],
+    data: [],
+    status: 'idle',
+    error: null,
 };
 
-const reservationSlice = createSlice({
+// Slice
+const reservSlice = createSlice({
     name: 'reservation',
     initialState,
-    reducers: {
-        addReservation: (state, action) => {
-            state.reservations.push(action.payload);
-        },
-        removeReservation: (state, action) => {
-            const index = state.reservations.findIndex(reservation => reservation.id === action.payload);
-            if (index !== -1) {
-                state.reservations.splice(index, 1);
-            }
-        },
+    reducers: {},
+    extraReducers: (builder) => {
+        builder
+            .addCase(fetchReservations.pending, (state) => {
+                state.status = 'loading';
+            })
+            .addCase(addReservation.pending, (state) => {
+                state.status = 'loading';
+            })
+            .addCase(deleteReservation.pending, (state) => {
+                state.status = 'loading';
+            })
+            .addCase(fetchReservations.fulfilled, (state, action) => {
+                state.status = 'succeeded';
+                state.data = action.payload;
+            })
+            .addCase(addReservation.fulfilled, (state, action) => {
+                state.status = 'succeeded';
+                state.data.push(action.payload);
+            })
+            .addCase(deleteReservation.fulfilled, (state, action) => {
+                state.status = 'succeeded';
+                state.data = state.data.filter((reserv) => reserv.id !== action.payload);
+            })
+            .addMatcher(
+                (action) => [fetchReservations.rejected, addReservation.rejected, deleteReservation.rejected].includes(action.type),
+                (state, action) => {
+                    state.status = 'failed';
+                    state.error = action.error.message;
+                }
+            );
     },
 });
 
-export const { addReservation, removeReservation } = reservationSlice.actions;
-export default reservationSlice.reducer;
+export default reservSlice.reducer;

@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+/* import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { removeReservation } from "../features/reservation/reservActions";
 
@@ -82,3 +82,4 @@ function Reservation() {
 }
 
 export default Reservation;
+ */

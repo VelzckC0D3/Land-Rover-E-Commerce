@@ -1,18 +1,19 @@
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { addReservation } from '../features/reservation/reservSlice';
-import { fetchCars } from '../features/cars/carSlice'
+import { addReservation } from '../../features/reservation/reservSlice';
+import { fetchCars } from '../../features/cars/carSlice'
 import { toast } from 'react-hot-toast';
+import { useParams } from 'react-router-dom'; // Import useParams
 
 function AddReservationPage() {
+    const { carId } = useParams(); // Extract carId from URL parameters
     const dispatch = useDispatch();
-    const cars = useSelector((state) => state.car.data);
     const userId = useSelector((state) => state.auth.user.id);
     const initialFormData = {
         city: '',
         date: '',
         user_id: userId,
-        car_id: ''
+        car_id: carId // Use the carId extracted from URL
     };
 
     useEffect(() => {
@@ -57,17 +58,6 @@ function AddReservationPage() {
                         min={new Date().toISOString().split('T')[0]} // Set the min attribute to today's date
                     />
 
-                </label>
-                <label>
-                    Car ID:
-                    <select name="car_id" value={formData.car_id} onChange={handleInputChange}>
-                        <option value="">Select a car</option>
-                        {cars.map((car) => (
-                            <option key={car.id} value={car.id}>
-                                {car.name}
-                            </option>
-                        ))}
-                    </select>
                 </label>
                 <button type="submit">Add Reservation</button>
             </form>
