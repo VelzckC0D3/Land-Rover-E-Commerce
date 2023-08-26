@@ -23,7 +23,10 @@ function UserReservation() {
         return car ? car.name : 'Unknown Car';
     };
 
-    const userReservations = reservations.filter((reservation) => reservation.user_id === authUser.id);
+    const userReservations = reservations.filter((reservation) => {
+        const carExists = cars.some((car) => car.id === reservation.car_id);
+        return reservation.user_id === authUser.id && carExists;
+    });
 
     return (
         <div className='container'>
