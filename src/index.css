@@ -15,7 +15,7 @@
 }
 
 body {
-  height: 100vh;
+  height: 100dvh;
   width: 100vw;
 }
 
@@ -24,4 +24,5 @@ body {
   align-items: center;
   height: 100%;
   width: 100%;
+  overflow: hidden;
 }
