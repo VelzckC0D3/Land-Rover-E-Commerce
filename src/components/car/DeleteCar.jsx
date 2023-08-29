@@ -5,7 +5,7 @@ import { toast } from 'react-hot-toast';
 
 function DeleteCarPage() {
     const dispatch = useDispatch();
-    const cars = useSelector((state) => state.car.data);
+    const cars = useSelector((state) => state.car);
 
     useEffect(() => {
         dispatch(fetchCars());
@@ -13,17 +13,21 @@ function DeleteCarPage() {
 
     const handleDelete = (carId) => {
         dispatch(deleteCar(carId));
-        toast.success(`Vehicle Deleted!`)
+        toast.success(`Vehicle Deleted!`);
     };
+
+    if (cars.loading) {
+        return <div>Loading...</div>;
+    }
 
     return (
         <div className='container'>
             <h2>Delete Vehicles</h2>
-            {cars.length === 0 ? (
+            {cars.data.length === 0 ? (
                 <p>No vehicles found.</p>
             ) : (
                 <ul>
-                    {cars.map((car) => (
+                    {cars.data.map((car) => (
                         <li key={car.id}>
                             <p>Model: {car.name}</p>
                             <p>Price: {car.price}</p>

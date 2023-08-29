@@ -20,7 +20,7 @@ export const registerUser = (formData) => async (dispatch) => {
             dispatch(authSuccess({ token, user }));
             localStorage.setItem('token', token);
             localStorage.setItem('user', JSON.stringify(user));
-            toast.success('Registration successful!');
+            toast.success(`Welcome, ${user.name}`);
         } else {
             throw new Error(response.statusText);
         }

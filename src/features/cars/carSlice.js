@@ -24,6 +24,7 @@ export const deleteCar = createAsyncThunk('car/deleteCar', async (carId) => {
 const initialState = {
   data: [],
   status: 'idle',
+  loading: false,
   error: null,
 };
 
@@ -36,6 +37,7 @@ const carSlice = createSlice({
     builder
       .addCase(fetchCars.pending, (state) => {
         state.status = 'loading';
+        state.loading = true;
       })
       .addCase(addCar.pending, (state) => {
         state.status = 'loading';
@@ -46,6 +48,7 @@ const carSlice = createSlice({
       .addCase(fetchCars.fulfilled, (state, action) => {
         state.status = 'succeeded';
         state.data = action.payload;
+        state.loading = false;
       })
       .addCase(addCar.fulfilled, (state, action) => {
         state.status = 'succeeded';
@@ -60,6 +63,7 @@ const carSlice = createSlice({
         (state, action) => {
           state.status = 'failed';
           state.error = action.error.message;
+          state.loading = false;
         }
       );
   },

@@ -1,13 +1,16 @@
 import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { registerUser } from '../../features/auth/authActions';
 
 const Registration = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const { register, handleSubmit, formState: { errors }, getValues } = useForm();
 
   const onSubmit = (formData) => {
     dispatch(registerUser(formData));
+    navigate('/')
   };
 
 

@@ -33,7 +33,7 @@
 }
 
 .homeCta {
-  display:flex;
+  display: flex;
   flex-direction: column;
   justify-items: center;
   align-items: center;
@@ -82,7 +82,6 @@
   height: 100dvh;
 }
 
-
 .swiper-slide-active {
   transition: opacity 1s ease-in-out !important;
 }
@@ -121,12 +120,15 @@
 .test1 {
   background-color: rgb(255, 255, 255);
 }
+
 .test2 {
   background-color: rgb(202, 202, 202);
 }
+
 .test3 {
   background-color: rgb(136, 136, 136);
 }
+
 .test4 {
   background-color: rgb(114, 114, 114);
 }
@@ -138,7 +140,7 @@
     background-size: 80vw;
     background-position: 50% 50%;
   }
-  
+
   .homeCta {
     transform: translateY(0);
   }
@@ -151,17 +153,17 @@
     background-color: rgb(255, 180, 0);
     background-image: url('../image/home1.webp');
   }
-  
+
   .home2 {
     background-color: rgb(212, 59, 59);
     background-image: url('../image/home2.webp');
   }
-  
+
   .home3 {
     background-color: rgb(52 132 213);
     background-image: url('../image/home3.webp');
   }
-  
+
   .home4 {
     background-color: rgb(120 87 213);
     background-image: url('../image/home4.webp');
