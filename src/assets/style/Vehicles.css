@@ -48,7 +48,8 @@
 }
 
 .swiper-button-next::after, .swiper-button-prev::after {
-  font-size: 2rem;
+  font-size: 1rem;
+  -webkit-text-stroke: 2px;
   color: white;
 }
 
@@ -102,6 +103,13 @@
   gap: 1rem;
   align-items: center;
   justify-content: center;
+}
+
+.carDescription {
+  text-align: center;
+  height: 5rem;
+  color: grey;
+  -webkit-text-stroke: 0.3px;
 }
 
 /* TABLET */

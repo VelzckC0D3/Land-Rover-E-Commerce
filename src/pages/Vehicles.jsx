@@ -126,7 +126,7 @@ function Vehicles() {
                 </div>
                 <h2>{car.name}</h2>
                 <div className={`divider${car.id}`} />
-                <p>{car.description}</p>
+                <p className="carDescription">{car.description}</p>
               </Link>
             </SwiperSlide>
           ))}
