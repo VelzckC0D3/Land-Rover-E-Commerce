@@ -1,10 +1,10 @@
 .vehiclesCont {
   height: 100%;
-  overflow: none;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
   padding: 4rem 0;
-  align-items: center; 
+  align-items: center;
   justify-content: center;
 }
 
@@ -38,16 +38,17 @@
   height: 35rem;
   user-select: none;
   padding: 0 2rem;
-  -webkit-tap-highlight-color: none !important;
 }
 
-.swiper-button-next, .swiper-button-prev {
+.swiper-button-next,
+.swiper-button-prev {
   width: 4rem;
   height: 3.5rem;
   background-color: rgb(152, 190, 24);
 }
 
-.swiper-button-next::after, .swiper-button-prev::after {
+.swiper-button-next::after,
+.swiper-button-prev::after {
   font-size: 1rem;
   -webkit-text-stroke: 2px;
   color: white;
@@ -60,7 +61,7 @@
 
 .swiper-button-next {
   right: 0;
-  border-radius:  2rem 0 0 2rem ;
+  border-radius: 2rem 0 0 2rem;
 }
 
 .swiper-button-disabled {
