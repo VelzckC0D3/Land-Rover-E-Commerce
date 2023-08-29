@@ -1,16 +1,113 @@
 .vehiclesCont {
-  width: 100%;
   height: 100%;
-  overflow: scroll;
+  overflow: none;
   display: flex;
   flex-direction: column;
-  padding: 2rem 0;
+  padding: 4rem 0;
   align-items: center; 
   justify-content: center;
 }
 
-.vehiclesSwiper {
-  background-color: rgb(201, 201, 201);
+.vehiclesHeader {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  padding: 0 1rem;
+}
+
+.vehiclesTitle {
+  font-family: "Bruno Ace", cursive;
+  -webkit-text-stroke: 1px;
+  text-align: center;
+}
+
+.vehiclesSub {
+  color: rgb(168, 168, 168);
+  -webkit-text-stroke: 0.5px;
+}
+
+.vehiclesCont .divider {
+  background-color: black !important;
+  width: 100% !important;
+}
+
+.swiperCont {
   width: 100vw;
   height: 35rem;
+  user-select: none;
+  padding: 0 2rem;
+  -webkit-tap-highlight-color: none !important;
 }
+
+.swiper-button-next, .swiper-button-prev {
+  width: 4rem;
+  height: 3.5rem;
+  background-color: rgb(152, 190, 24);
+}
+
+.swiper-button-next::after, .swiper-button-prev::after {
+  font-size: 2rem;
+  color: white;
+}
+
+.swiper-button-prev {
+  left: 0;
+  border-radius: 0 2rem 2rem 0;
+}
+
+.swiper-button-next {
+  right: 0;
+  border-radius:  2rem 0 0 2rem ;
+}
+
+.swiper-button-disabled {
+  opacity: 1 !important;
+  background-color: rgb(221, 221, 221);
+}
+
+.vehicleSwiper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.carImg {
+  width: 80%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.carImg img {
+  width: 100%;
+}
+
+.carImg::before {
+  content: "";
+  width: 8rem;
+  height: 8rem;
+  border-radius: 50%;
+  position: absolute;
+  z-index: -1;
+}
+
+.carLink {
+  margin-top: 1rem;
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+}
+
+/* TABLET */
+
+.navButtonVehicles {
+  display: none;
+}
+
+/* TABLET */

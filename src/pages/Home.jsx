@@ -17,7 +17,7 @@ const Home = () => {
         direction="horizontal"
         modules={[Autoplay, EffectFade, Navigation, Pagination]}
         effect="fade"
-        autoplay={{ delay: 5000, disableOnInteraction: true }}
+        autoplay={{ delay: 5000, disableOnInteraction: false }}
         slidesPerView={1}
         allowTouchMove={false}
         loop={true}

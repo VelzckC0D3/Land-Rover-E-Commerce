@@ -12,6 +12,13 @@
   list-style: none;
   text-decoration: none;
   font-family: Roboto, sans-serif;
+  -webkit-tap-highlight-color: transparent;
+}
+
+*:visited,
+*:link
+ {
+  color: black;
 }
 
 body {
