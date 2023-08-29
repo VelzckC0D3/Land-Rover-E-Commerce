@@ -75,8 +75,16 @@
   justify-content: center;
 }
 
+.loadingText {
+  height: 10rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .carImg {
   width: 80%;
+  height: 80%;
   display: flex;
   justify-content: center;
   align-items: center;

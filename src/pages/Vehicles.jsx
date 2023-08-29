@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { fetchCars } from "../features/cars/carSlice";
@@ -12,11 +12,30 @@ import "swiper/css/pagination";
 function Vehicles() {
   const dispatch = useDispatch();
   const cars = useSelector((state) => state.car.data);
-  const sortedCars = cars.slice().sort((a, b) => new Date(a.created_at) - new Date(b.created_at));
+  const sortedCars = cars
+    .slice()
+    .sort((a, b) => new Date(a.created_at) - new Date(b.created_at));
+  const [imagesLoaded, setImagesLoaded] = useState(false);
 
   useEffect(() => {
-    dispatch(fetchCars());
+    const fetchData = async () => {
+      try {
+        await dispatch(fetchCars());
+      } catch (error) {
+        console.error("Error fetching cars:", error);
+      }
+    };
+
+    fetchData();
   }, [dispatch]);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setImagesLoaded(true);
+    }, 1500);
+
+    return () => clearTimeout(timer);
+  }, []);
 
   return (
     <>
@@ -122,7 +141,11 @@ function Vehicles() {
                       }
                     `}
                   </style>
-                  <img src={car.front_image} alt={car.name} />
+                  {imagesLoaded ? (
+                    <img src={car.front_image} alt={car.name} />
+                  ) : (
+                    <div className="loadingText">Loading...</div>
+                  )}
                 </div>
                 <h2>{car.name}</h2>
                 <div className={`divider${car.id}`} />

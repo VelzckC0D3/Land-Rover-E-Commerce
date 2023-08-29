@@ -87,6 +87,7 @@ function AddCarForm() {
           value={formData.interior_image}
           onChange={handleInputChange}
         />
+        <label htmlFor="color">Color</label>
         <input
           type="color"
           name="color"
