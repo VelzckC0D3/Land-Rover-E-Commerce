@@ -74,7 +74,7 @@ const Home = () => {
           <div className="homeCont home4">
             <div className="homeCta">
               <h2 className="homeTitle">LAND ROVER</h2>
-              <h3 className="homeSub">RANGE ROVER SPORT</h3>
+              <h3 className="homeSub">RANGE ROVER VELAR</h3>
               <button
                 className="actionBtn"
                 onClick={() => navigate("/vehicles")}

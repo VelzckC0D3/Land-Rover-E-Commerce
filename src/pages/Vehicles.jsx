@@ -1,49 +1,66 @@
-import { useEffect, useRef } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
-import { fetchCars } from '../features/cars/carSlice';
-import { BsCaretLeft, BsCaretRight } from 'react-icons/bs';
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
+import { fetchCars } from "../features/cars/carSlice";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation } from "swiper";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
 
 function Vehicles() {
-    const dispatch = useDispatch();
-    const cars = useSelector((state) => state.car);
-    const carContainerRef = useRef(null);
+  const dispatch = useDispatch();
+  const cars = useSelector((state) => state.car);
 
-    const handleScroll = (scrollOffset) => {
-        if (carContainerRef.current) {
-            carContainerRef.current.scrollLeft += scrollOffset;
-        }
-    };
+  useEffect(() => {
+    dispatch(fetchCars());
+  }, [dispatch]);
 
-    useEffect(() => {
-        dispatch(fetchCars());
-    }, [dispatch]);
-
-    return (
-        <div className="container">
-            <h1>List Of Vehicles</h1>
-            <div className='big-div'>
-                <button className='scroll-button' onClick={() => handleScroll(-200)}>
-                    <BsCaretLeft className="fs-5" />
-                </button>
-                <div className='car-container' ref={carContainerRef}>
-                    {cars.data.length === 0 && <p>No cars found.</p>}
-                    {cars.data.map((car) => (
-                        <Link to={`/car_details/${car.id}`} key={car.id}>
-                            <div className='car-div'>
-                                <img src={car.front_image} className='car-img' alt={car.name} />
-                                <h4>{car.name}</h4>
-                                <p>{car.description}</p>
-                            </div>
-                        </Link>
-                    ))}
-                </div>
-                <button className='scroll-button' onClick={() => handleScroll(200)}>
-                    <BsCaretRight className="fs-5" />
-                </button>
-            </div>
+  return (
+    <>
+      <div className="vehiclesCont">
+        <div className="vehiclesTitle">
+          <h1>LATEST MODELS</h1>
+          <p>Please select a Land Rover model.</p>
         </div>
-    );
+
+        if (cars.data.length == 0) {
+
+        } else {
+
+        <Swiper
+          breakpoints={{
+            0: {
+              slidesPerView: 1,
+            },
+            768: {
+              slidesPerView: 3,
+            },
+          }}
+          cssMode={true}
+          navigation={true}
+          mousewheel={true}
+          keyboard={true}
+          direction="horizontal"
+          modules={[Navigation]}
+          className="vehiclesSwiper"
+        >
+          <SwiperSlide>Slide 1</SwiperSlide>
+          <SwiperSlide>Slide 2</SwiperSlide>
+          <SwiperSlide>Slide 3</SwiperSlide>
+          <SwiperSlide>Slide 4</SwiperSlide>
+          <SwiperSlide>Slide 5</SwiperSlide>
+          <SwiperSlide>Slide 6</SwiperSlide>
+          <SwiperSlide>Slide 7</SwiperSlide>
+          <SwiperSlide>Slide 8</SwiperSlide>
+          <SwiperSlide>Slide 9</SwiperSlide>
+        </Swiper>
+};
+      </div>
+    </>
+  );
+
+
 }
 
 export default Vehicles;
