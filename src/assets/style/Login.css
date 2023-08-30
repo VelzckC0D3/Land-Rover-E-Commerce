@@ -13,7 +13,7 @@
 .loginFormCont {
   background-color: #ffb400;
   background-image: url(../image/form1.jpg);
-  background-size: initial;
+  background-size: cover;
   background-position: -15% 40%;
   z-index: 1;
 }

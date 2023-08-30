@@ -6,10 +6,10 @@ import { Link } from "react-router-dom";
 import "../../assets/style/VehicleDetails.css";
 import { SwishSpinner } from "react-spinners-kit";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { EffectFade } from "swiper";
+import { EffectFade, Navigation } from "swiper";
 import "swiper/css";
 import "swiper/css/effect-fade";
-import "swiper/css/pagination";
+import "swiper/css/navigation";
 import { FaAngleLeft } from "react-icons/fa";
 import { LuRotate3D } from "react-icons/lu";
 
@@ -35,12 +35,19 @@ function CarDetails() {
     return <div>Car not found</div>;
   }
 
-  const reservationButton = isAuthenticated ? (
-    <Link to={`/reservation/${car.id}`} className="nav-link">
-      <button>Make Reservation</button>
+  const duration = 48;
+  const financeFee = car.price * 0.05 * 5;
+  const minimumDeposit = car.price * 0.01 * duration;
+  const totalAmount = car.price + financeFee * 2;
+
+  const scheduleTestDrive = isAuthenticated ? (
+    <Link to={`/reservation/${car.id}`}>
+      <button className="scheduleBtn">Schedule Test Drive</button>
     </Link>
   ) : (
-    <button onClick={() => navigate("/login")}>Make Reservation</button>
+    <button className="scheduleBtn" onClick={() => navigate("/login")}>
+      Schedule Test Drive
+    </button>
   );
 
   return (
@@ -53,7 +60,7 @@ function CarDetails() {
         loop={true}
         effect="fade"
         spaceBetween={10}
-        modules={[EffectFade]}
+        modules={[EffectFade, Navigation]}
         className="detailsSwiper"
       >
         <SwiperSlide>
@@ -175,12 +182,32 @@ function CarDetails() {
       </div>
 
       <div className="detailsInfo">
-        <p className="detailsDeposit">
-          $350 deposit upon any Land Rover purchase.
-        </p>
-        <p>Price: ${car.price}</p>
+        <div className="divider" />
+        <div className="detailsPrice">
+          <p>Minimum deposit</p>
+          <p>${minimumDeposit.toLocaleString()}</p>
+        </div>
+        <div className="detailsPrice">
+          <p>Finance fee</p>
+          <p>${financeFee.toLocaleString()}</p>
+        </div>
+        <div className="detailsPrice">
+          <p>Total amount</p>
+          <p>${totalAmount.toLocaleString()}</p>
+        </div>
+        <div className="detailsPrice">
+          <p>Duration</p>
+          <p>{duration} Months</p>
+        </div>
+        <div className="detailsPrice">
+          <p>Full payment option</p>
+          <p>${car.price.toLocaleString()}</p>
+        </div>
+        <div className="detailsSchedule">
+          <p className="scheduleText">Are you interested in this vehicle?</p>
+          {scheduleTestDrive}
+        </div>
       </div>
-      {reservationButton}
     </div>
   );
 }
