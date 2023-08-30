@@ -1,68 +1,61 @@
-import { useState, useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 import { addReservation } from '../../features/reservation/reservSlice';
-import { fetchCars } from '../../features/cars/carSlice'
+import { fetchCars } from '../../features/cars/carSlice';
 import { toast } from 'react-hot-toast';
 import { useParams } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
+import { useForm } from 'react-hook-form';
 
 function AddReservationPage() {
     const navigate = useNavigate();
     const { carId } = useParams();
     const dispatch = useDispatch();
-    const userId = useSelector((state) => state.auth.user.id);
-    const initialFormData = {
-        city: '',
-        date: '',
-        user_id: userId,
-        car_id: carId
-    };
+
+    const userFromLocalStorage = JSON.parse(localStorage.getItem('user'));
+    const userId = userFromLocalStorage ? userFromLocalStorage.id : null;
+
+    const { register, handleSubmit } = useForm();
 
     useEffect(() => {
         dispatch(fetchCars());
     }, [dispatch]);
 
-    const [formData, setFormData] = useState(initialFormData);
+    const onSubmit = (data) => {
+        const formDataWithIds = {
+            ...data,
+            user_id: userId,
+            car_id: carId,
+        };
 
-    const handleInputChange = (event) => {
-        const { name, value } = event.target;
-        setFormData((prevData) => ({
-            ...prevData,
-            [name]: value
-        }));
-    };
-
-    const handleSubmit = (event) => {
-        event.preventDefault();
-        dispatch(addReservation(formData)).then(() => {
-            // Reservation added successfully, reset form fields
-            setFormData(initialFormData);
+        dispatch(addReservation(formDataWithIds)).then(() => {
             // Show a success toast message
             toast.success('Reservation added successfully!');
-            // redirect to "/My-Reservations"
-            navigate('/my-reservs')
+            // Redirect to "My Reservations"
+            navigate('/my-reservs');
         });
     };
 
     return (
         <div className="container">
             <h2>Add Reservation</h2>
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit(onSubmit)}>
                 <label>
                     City:
-                    <input type="text" name="city" value={formData.city} onChange={handleInputChange} required />
+                    <input
+                        type="text"
+                        name="city"
+                        {...register('city', { required: true })}
+                    />
                 </label>
                 <label>
                     Date:
                     <input
                         type="date"
                         name="date"
-                        value={formData.date}
-                        onChange={handleInputChange}
+                        {...register('date', { required: true })}
                         min={new Date().toISOString().split('T')[0]}
-                        required
                     />
-
                 </label>
                 <button type="submit">Add Reservation</button>
             </form>

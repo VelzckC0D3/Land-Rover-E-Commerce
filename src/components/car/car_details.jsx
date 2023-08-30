@@ -1,15 +1,26 @@
+import { useEffect } from "react";
 import { useParams, useNavigate } from 'react-router-dom';
-import { useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import { fetchCars } from '../../features/cars/carSlice';
+import { Link } from "react-router-dom";
 
 function CarDetails() {
   const { carId } = useParams();
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
-  const cars = useSelector((state) => state.car.data);
+  useEffect(() => {
+    dispatch(fetchCars());
+  }, [dispatch]);
+
+  const cars = useSelector((state) => state.car);
   const isAuthenticated = useSelector((state) => state.auth.user);
 
-  const car = cars.find((car) => car.id === parseInt(carId));
+  const car = cars.data.find((car) => car.id === parseInt(carId));
+
+  if (cars.loading) {
+    return <div>Loading...</div>;
+  }
 
   if (!car) {
     return <div>Car not found</div>;

@@ -122,6 +122,7 @@ const Navbar = () => {
 
               <li className="navLink">
                 <Link
+                to={`/`}
                   className="navAnchor"
                   onClick={() => {
                     handleLogout();

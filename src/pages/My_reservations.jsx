@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react'; // Import useState
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchReservations, deleteReservation } from '../features/reservation/reservSlice';
 import { fetchCars } from '../features/cars/carSlice';
@@ -10,14 +10,20 @@ function UserReservation() {
     const cars = useSelector((state) => state.car.data);
     const authUser = useSelector((state) => state.auth.user);
 
+    const [loading, setLoading] = useState(true);
+
     useEffect(() => {
-        dispatch(fetchReservations());
-        dispatch(fetchCars());
+        setLoading(true);
+        dispatch(fetchReservations())
+            .then(() => dispatch(fetchCars()))
+            .finally(() => {
+                setLoading(false);
+            });
     }, [dispatch]);
 
     const handleDelete = (reservationId) => {
         dispatch(deleteReservation(reservationId));
-        toast.success("Reservation Deleted!")
+        toast.success('Reservation Deleted!');
     };
 
     const getCarName = (carId) => {
@@ -33,7 +39,9 @@ function UserReservation() {
     return (
         <div className='container'>
             <h2>Reservations</h2>
-            {userReservations.length === 0 ? (
+            {loading ? (
+                <p>Loading...</p>
+            ) : userReservations.length === 0 ? (
                 <p>No reservations found.</p>
             ) : (
                 <ul>
