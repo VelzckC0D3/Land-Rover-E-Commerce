@@ -2,7 +2,7 @@ import axios from 'axios';
 import { authRequest, authSuccess, authFailure, logout } from './authSlice';
 import { toast } from 'react-hot-toast';
 
-const API_BASE_URL = 'http://192.168.1.1:3000';
+const API_BASE_URL = 'http://127.0.0.1:3001';
 
 export const registerUser = (formData) => async (dispatch) => {
     dispatch(authRequest());
