@@ -79,7 +79,9 @@
 }
 
 .swiper {
+  /* stylelint-disable */
   height: 100dvh;
+  /* stylelint-enable */
 }
 
 .swiper-slide-active {

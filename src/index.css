@@ -21,7 +21,9 @@
 }
 
 body {
+  /* stylelint-disable */
   height: 100dvh;
+  /* stylelint-enable */
   width: 100vw;
 }
 

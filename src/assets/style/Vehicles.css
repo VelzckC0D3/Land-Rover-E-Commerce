@@ -1,6 +1,6 @@
 .vehiclesCont {
   height: 100%;
-  overflow: none;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
   padding: 4rem 0;
@@ -38,7 +38,6 @@
   height: 35rem;
   user-select: none;
   padding: 0 2rem;
-  -webkit-tap-highlight-color: none !important;
 }
 
 .swiper-button-next,
