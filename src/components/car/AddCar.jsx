@@ -49,16 +49,31 @@ function AddCarForm() {
         />
         <input
           type="text"
+          name="semi_front_image"
+          placeholder="Semi Front Image URL"
+          {...register("semi_front_image", { required: true })}
+        />
+        <input
+          type="text"
+          name="side_image"
+          placeholder="Side Image URL"
+          {...register("side_image", { required: true })}
+        />
+
+        <input
+          type="text"
+          name="semi_back_image"
+          placeholder="Semi Back Image URL"
+          {...register("semi_back_image", { required: true })}
+        />
+
+        <input
+          type="text"
           name="back_image"
           placeholder="Back Image URL"
           {...register("back_image", { required: true })}
         />
-        <input
-          type="text"
-          name="interior_image"
-          placeholder="Interior Image URL"
-          {...register("interior_image")}
-        />
+=
         <label htmlFor="color">Color</label>
         <input
           type="color"

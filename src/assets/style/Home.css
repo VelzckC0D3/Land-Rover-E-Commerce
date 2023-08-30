@@ -84,10 +84,6 @@
   /* stylelint-enable */
 }
 
-.swiper-slide-active {
-  transition: opacity 1s ease-in-out !important;
-}
-
 .swiper-pagination {
   display: flex;
   flex-direction: column;

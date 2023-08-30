@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { fetchCars } from "../features/cars/carSlice";
@@ -8,7 +8,7 @@ import "../assets/style/Vehicles.css";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import { StageSpinner } from "react-spinners-kit";
+import { SwishSpinner } from "react-spinners-kit";
 import { BsInstagram, BsFacebook, BsTwitter } from "react-icons/bs";
 
 function Vehicles() {
@@ -17,6 +17,9 @@ function Vehicles() {
   const sortedCars = cars.data
     .slice()
     .sort((a, b) => new Date(a.created_at) - new Date(b.created_at));
+
+  /*   const carImages = cars.data.map((car) => car.front_image); */
+  /* I want to pre load carImages which are some Img links */
 
   useEffect(() => {
     const fetchData = async () => {
@@ -30,26 +33,25 @@ function Vehicles() {
     fetchData();
   }, [dispatch]);
 
-  
-
   if (cars.loading) {
-    return <div>
-      Loading...
-      <StageSpinner size={50} color="#000000" loading={true} />
-      </div>;
+    return (
+      <div>
+        <SwishSpinner size="50" frontColor="#98be18" loading={true} />
+      </div>
+    );
   }
 
-    return (
-      <>
-        <div className="vehiclesCont">
-          <div className="vehiclesHeader">
-            <h1 className="vehiclesTitle">LATEST MODELS</h1>
-            <p className="vehiclesSub">Please select a Land Rover model.</p>
-            <div className="divider" />
-          </div>
+  return (
+    <>
+      <div className="vehiclesCont">
+        <div className="vehiclesHeader">
+          <h1 className="vehiclesTitle">LATEST MODELS</h1>
+          <p className="vehiclesSub">Please select a Land Rover model.</p>
+          <div className="divider" />
+        </div>
 
-          <style>
-            {`
+        <style>
+          {`
             @media (min-width: 410px) {
               .carImg::before {
                 width: 11rem;
@@ -118,36 +120,36 @@ function Vehicles() {
             }
 
           `}
-          </style>
+        </style>
 
-          <Swiper
-            breakpoints={{
-              0: {
-                slidesPerView: 1,
-                spaceBetween: 100,
-              },
-              768: {
-                slidesPerView: 2,
-                spaceBetween: 10,
-              },
-              1024: {
-                slidesPerView: 3,
-                spaceBetween: 10,
-              },
-            }}
-            cssMode={true}
-            navigation={true}
-            direction="horizontal"
-            modules={[Navigation]}
-            className="swiperCont"
-          >
-            {sortedCars.map((car) => (
-              <SwiperSlide className="vehicleSwiper" key={car.id}>
-                <Link to={`/VehicleDetails/${car.id}`} className="carLink">
-                  <div className="carCard">
-                    <div className={`carImg car${car.id}`}>
-                      <style>
-                        {`
+        <Swiper
+          breakpoints={{
+            0: {
+              slidesPerView: 1,
+              spaceBetween: 100,
+            },
+            768: {
+              slidesPerView: 2,
+              spaceBetween: 10,
+            },
+            1024: {
+              slidesPerView: 3,
+              spaceBetween: 10,
+            },
+          }}
+          cssMode={true}
+          navigation={true}
+          direction="horizontal"
+          modules={[Navigation]}
+          className="swiperCont"
+        >
+          {sortedCars.map((car) => (
+            <SwiperSlide className="vehicleSwiper" key={car.id}>
+              <Link to={`/VehicleDetails/${car.id}`} className="carLink">
+                <div className="carCard">
+                  <div className={`carImg car${car.id}`}>
+                    <style>
+                      {`
                       .car${car.id}::before {
                         background-color: ${car.color};
                       }
@@ -162,47 +164,47 @@ function Vehicles() {
                         height: 2px;
                       }
                     `}
-                      </style>
+                    </style>
 
-                      <img src={car.front_image} alt={car.name} />
-                    </div>
-                    <h2>{car.name}</h2>
-                    <div className={`divider${car.id}`} />
-                    <p className="carDescription">{car.description}</p>
-                    <div className="carIcons">
-                      <a
-                        className="icon"
-                        href="https://github.com/VelzckC0D3/Land-Rover-E-Commerce"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        <BsTwitter />
-                      </a>
-                      <a
-                        className="icon"
-                        href="https://github.com/VelzckC0D3/Land-Rover-E-Commerce"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        <BsInstagram />
-                      </a>
-                      <a
-                        className="icon"
-                        href="https://github.com/VelzckC0D3/Land-Rover-E-Commerce"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        <BsFacebook />
-                      </a>
-                    </div>
+                    <img src={car.semi_front_image} alt={car.name} />
                   </div>
-                </Link>
-              </SwiperSlide>
-            ))}
-          </Swiper>
-        </div>
-      </>
-    );
-  }
+                  <h2>{car.name}</h2>
+                  <div className={`divider${car.id}`} />
+                  <p className="carDescription">{car.description}</p>
+                  <div className="carIcons">
+                    <a
+                      className="icon"
+                      href="https://github.com/VelzckC0D3/Land-Rover-E-Commerce"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <BsTwitter />
+                    </a>
+                    <a
+                      className="icon"
+                      href="https://github.com/VelzckC0D3/Land-Rover-E-Commerce"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <BsInstagram />
+                    </a>
+                    <a
+                      className="icon"
+                      href="https://github.com/VelzckC0D3/Land-Rover-E-Commerce"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <BsFacebook />
+                    </a>
+                  </div>
+                </div>
+              </Link>
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </div>
+    </>
+  );
+}
 
 export default Vehicles;

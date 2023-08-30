@@ -13,6 +13,22 @@ const Home = () => {
   const navigate = useNavigate();
   return (
     <>
+      <style>{`
+    .navButton{
+      filter: brightness(0) invert(1);
+    }
+
+    .btnActive {
+      transform: rotate(360deg);
+      -webkit-transform: rotate(360deg);
+      filter: brightness(1) invert(0);
+    }
+
+    
+    .swiper-slide-active {
+      transition: opacity 1s ease-in-out !important;
+    }
+    `}</style>
       <Swiper
         direction="horizontal"
         modules={[Autoplay, EffectFade, Navigation, Pagination]}
@@ -84,7 +100,6 @@ const Home = () => {
             </div>
           </div>
         </SwiperSlide>
-
       </Swiper>
     </>
   );

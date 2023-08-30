@@ -67,7 +67,7 @@
 .swiper-button-prev {
   width: 4rem;
   height: 3.5rem;
-  background-color: rgb(152, 190, 24);
+  background-color: #98be18;
 }
 
 .swiper-button-next::after,
@@ -152,7 +152,7 @@
 }
 
 .carCard:hover {
-  transform: scale(1.05);
+  transform: scale(1.03);
 }
 
 .carDescription {
@@ -181,6 +181,13 @@
   justify-content: center;
   align-items: center;
   color: rgb(180, 180, 180);
+  transition: all 0.25s ease-in-out;
+}
+
+.icon:hover {
+  color: rgb(131, 131, 131);
+
+transform: scale(1.05);
 }
 
 /* TABLET */
