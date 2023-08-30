@@ -17,20 +17,37 @@
   padding: 0 1rem;
 }
 
+@keyframes fadeInTop {
+  from {
+    opacity: 0;
+    transform: translateY(-1rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0rem);
+  }
+}
+
 .vehiclesTitle {
   font-family: "Bruno Ace", cursive;
   -webkit-text-stroke: 1px;
   text-align: center;
+  opacity: 0;
+  animation: fadeInTop 0.2s ease-in-out forwards;
 }
 
 .vehiclesSub {
   color: rgb(168, 168, 168);
   -webkit-text-stroke: 0.5px;
+  opacity: 0;
+  animation: fadeInTop 0.2s ease-in-out 0.1s forwards;
 }
 
 .vehiclesCont .divider {
   background-color: black !important;
   width: 100% !important;
+  opacity: 0;
+  animation: fadeInTop 0.2s ease-in-out 0.2s forwards;
 }
 
 .swiperCont {
@@ -38,6 +55,11 @@
   height: 35rem;
   user-select: none;
   padding: 0 2rem;
+}
+
+.vehiclesCont .swiper-wrapper {
+  opacity: 0;
+  animation: fadeInTop 0.2s ease-in-out 0.4s forwards;
 }
 
 .swiper-button-next,
@@ -76,8 +98,18 @@
   justify-content: center;
 }
 
+.loadingText {
+  height: 10rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: white;
+}
+
 .carImg {
   width: 80%;
+  height: 80%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -94,6 +126,7 @@
   border-radius: 50%;
   position: absolute;
   z-index: -1;
+  box-shadow: 4px 7px 20px 0rem rgba(0, 0, 0, 0.5);
 }
 
 .carLink {
@@ -104,13 +137,49 @@
   gap: 1rem;
   align-items: center;
   justify-content: center;
+  transition: 0.5s;
+}
+
+.carCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  transition: all 0.3s ease-in-out;
+  transform: scale(1);
+}
+
+.carCard:hover {
+  transform: scale(1.05);
 }
 
 .carDescription {
   text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   height: 5rem;
   color: grey;
   -webkit-text-stroke: 0.3px;
+}
+
+.carIcons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.icon {
+  font-size: 1.5rem;
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: rgb(180, 180, 180);
 }
 
 /* TABLET */

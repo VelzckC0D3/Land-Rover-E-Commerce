@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { fetchCars } from "../features/cars/carSlice";
@@ -8,15 +8,36 @@ import "../assets/style/Vehicles.css";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
+import { StageSpinner } from "react-spinners-kit";
+import { BsInstagram, BsFacebook, BsTwitter } from "react-icons/bs";
 
 function Vehicles() {
   const dispatch = useDispatch();
   const cars = useSelector((state) => state.car.data);
-  const sortedCars = cars.slice().sort((a, b) => new Date(a.created_at) - new Date(b.created_at));
+  const sortedCars = cars
+    .slice()
+    .sort((a, b) => new Date(a.created_at) - new Date(b.created_at));
+  const [imagesLoaded, setImagesLoaded] = useState(false);
 
   useEffect(() => {
-    dispatch(fetchCars());
+    const fetchData = async () => {
+      try {
+        await dispatch(fetchCars());
+      } catch (error) {
+        console.error("Error fetching cars:", error);
+      }
+    };
+
+    fetchData();
   }, [dispatch]);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setImagesLoaded(true);
+    }, 1500);
+
+    return () => clearTimeout(timer);
+  }, []);
 
   return (
     <>
@@ -29,17 +50,17 @@ function Vehicles() {
 
         <style>
           {`
-            @media (min-width: 420px) {
+            @media (min-width: 410px) {
               .carImg::before {
-                width: 12rem;
-                height: 12rem;
+                width: 11rem;
+                height: 11rem;
               }
             }
 
-            @media (min-width: 620px) {
+            @media (min-width: 600px) {
               .carImg::before {
-                width: 15rem;
-                height: 15rem;
+                width: 16rem;
+                height: 16rem;
               }
             }
 
@@ -82,6 +103,20 @@ function Vehicles() {
               }
             }
 
+            @media (min-width: 1550px) {
+              .carImg::before {
+                width: 12rem;
+                height: 12rem;
+              }
+            }
+
+            @media (min-width: 1850px) {
+              .carImg::before {
+                width: 14rem;
+                height: 14rem;
+              }
+            }
+
           `}
         </style>
 
@@ -109,24 +144,68 @@ function Vehicles() {
           {sortedCars.map((car) => (
             <SwiperSlide className="vehicleSwiper" key={car.id}>
               <Link to={`/car_details/${car.id}`} className="carLink">
-                <div className={`carImg car${car.id}`}>
-                  <style>
-                    {`
+                <div className="carCard">
+                  <div className={`carImg car${car.id}`}>
+                    <style>
+                      {`
                       .car${car.id}::before {
                         background-color: ${car.color};
                       }
+
+                      .car${car.id} img {
+                        width: 100%;
+                        opacity: 0;
+                        animation: fadeInTop 0.2s ease-in-out 0.${car.id}s forwards;
+                      }
+
                       .divider${car.id} {
                         background-color: ${car.color};
                         width: 100%;
                         height: 2px;
                       }
                     `}
-                  </style>
-                  <img src={car.front_image} alt={car.name} />
+                    </style>
+                    {imagesLoaded ? (
+                      <img src={car.front_image} alt={car.name} />
+                    ) : (
+                      <>
+                        <div className="loadingText">
+                          <p>Loading</p>
+                          <StageSpinner backColor="#fff" />
+                        </div>
+                      </>
+                    )}
+                  </div>
+                  <h2>{car.name}</h2>
+                  <div className={`divider${car.id}`} />
+                  <p className="carDescription">{car.description}</p>
+                  <div className="carIcons">
+                    <a
+                      className="icon"
+                      href="https://github.com/VelzckC0D3/Land-Rover-E-Commerce"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <BsTwitter />
+                    </a>
+                    <a
+                      className="icon"
+                      href="https://github.com/VelzckC0D3/Land-Rover-E-Commerce"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <BsInstagram />
+                    </a>
+                    <a
+                      className="icon"
+                      href="https://github.com/VelzckC0D3/Land-Rover-E-Commerce"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <BsFacebook />
+                    </a>
+                  </div>
                 </div>
-                <h2>{car.name}</h2>
-                <div className={`divider${car.id}`} />
-                <p className="carDescription">{car.description}</p>
               </Link>
             </SwiperSlide>
           ))}

@@ -59,6 +59,7 @@ function AddCarForm() {
           placeholder="Interior Image URL"
           {...register("interior_image")}
         />
+        <label htmlFor="color">Color</label>
         <input
           type="color"
           name="color"
