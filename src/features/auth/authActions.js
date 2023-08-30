@@ -71,7 +71,7 @@ export const logoutUser = () => async (dispatch, getState) => {
             dispatch(logout());
             localStorage.removeItem('token');
             localStorage.removeItem('user');
-            window.location.href = '/'
+            toast.success('Logged out successfully.');
         } else {
             throw new Error(response.statusText);
         }

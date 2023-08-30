@@ -1,36 +1,36 @@
-import React, { useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
-import { Toaster } from 'react-hot-toast';
-import './index.css';
-import Home from './pages/Home';
-import Registration from './components/auth/Registration';
-import Login from './components/auth/Login';
-import CarDetails from './components/car/car_details';
-import Navbar from './components/Navbar';
-import Vehicles from './pages/Vehicles';
-import Reservation from './pages/Reservation'
-import ReservationForm from './components/car/ReservationForm'
-import My_reservations from './pages/My_reservations'
-import DeleteCar from './components/car/DeleteCar'
-import AddCar from './components/car/AddCar';
-import { authSuccess } from './features/auth/authSlice';
+import React, { useEffect } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { Toaster } from "react-hot-toast";
+import "./index.css";
+import Home from "./pages/Home";
+import Registration from "./components/auth/Registration";
+import Login from "./components/auth/Login";
+import CarDetails from "./components/car/car_details";
+import Navbar from "./components/Navbar";
+import Vehicles from "./pages/Vehicles";
+import Reservation from "./pages/Reservation";
+import ReservationForm from "./components/car/ReservationForm";
+import My_reservations from "./pages/My_reservations";
+import DeleteCar from "./components/car/DeleteCar";
+import AddCar from "./components/car/AddCar";
+import { authSuccess } from "./features/auth/authSlice";
 
 const App = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    const storedToken = localStorage.getItem('token');
+    const storedToken = localStorage.getItem("token");
     if (storedToken) {
-      const storedUser = JSON.parse(localStorage.getItem('user'));
+      const storedUser = JSON.parse(localStorage.getItem("user"));
       dispatch(authSuccess({ token: storedToken, user: storedUser }));
     }
   }, [dispatch]);
 
   return (
     <React.StrictMode>
+      <Toaster />
       <Router className="router">
-        <Toaster />
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
