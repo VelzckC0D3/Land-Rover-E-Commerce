@@ -19,40 +19,88 @@ const Login = () => {
   };
 
   return (
-    <section className="loginContainer">
-      <div className="container">
-        <h2>Login</h2>
-        <form onSubmit={handleSubmit(onSubmit)}>
-          <div className="form-group">
-            <label>Email</label>
+    <>
+      <style>
+        {`
+          .navButton{
+            filter: brightness(0) invert(1);
+          }
+
+          .btnActive {
+            transform: rotate(360deg);
+            -webkit-transform: rotate(360deg);
+            filter: brightness(1) invert(0);
+          }
+          
+          @media (min-width: 900px) {
+
+            .loginFormCont {
+              background-position: 28rem 40%;
+              background-size: contain;
+            }
+            
+            .loginForm {
+              max-width: 50rem;
+              transform: scale(0.7)
+            }
+
+            .formTitle {
+              max-width: none;
+            }
+
+            .loginForm .inputCont {
+              flex-direction: row;
+            }
+
+            .loginForm .formInput {
+              font-size: 1.3rem;
+            }
+          }
+
+          @media (min-width: 1024px) {
+
+            .loginFormCont {
+              background-position: 40rem 40%;
+            }
+          }
+
+          @media (min-width: 1330px) {
+
+            .loginFormCont {
+              background-position: center;
+            }
+          }
+        `}
+      </style>
+      <section className="formCont loginFormCont">
+        <form className="loginForm" onSubmit={handleSubmit(onSubmit)}>
+          <h1 className="formTitle">Login</h1>
+          <div className="inputCont">
             <input
+              className="formInput"
               type="email"
               name="email"
-              placeholder="Enter your email"
+              placeholder="Email Address"
+              required={true}
               {...register("email", { required: "Email is required" })}
             />
             {errors.email && (
               <span className="error">{errors.email.message}</span>
             )}
-          </div>
 
-          <div className="form-group">
-            <label>Password</label>
             <input
+              className="formInput"
               type="password"
               name="password"
-              placeholder="Enter your password"
+              placeholder="Password"
+              required={true}
               {...register("password", { required: "Password is required" })}
             />
-            {errors.password && (
-              <span className="error">{errors.password.message}</span>
-            )}
           </div>
-
           <button type="submit">Login</button>
         </form>
-      </div>
-    </section>
+      </section>
+    </>
   );
 };
 

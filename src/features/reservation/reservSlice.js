@@ -2,7 +2,7 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
 // API URL
-const apiURL = 'http://127.0.0.1:3001';
+const apiURL = 'http://192.168.1.1:3000';
 
 // Thunks
 export const fetchReservations = createAsyncThunk('reservation/fetchReservations', async () => {
