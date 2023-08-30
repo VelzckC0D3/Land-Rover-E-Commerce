@@ -7,3 +7,10 @@
   transition: background-color 0.5s;
 }
 
+.signup-modal {
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 400px;
+}
