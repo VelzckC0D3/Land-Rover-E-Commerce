@@ -14,4 +14,19 @@ describe('carSlice', () => {
 
     expect(initialState).toEqual(expectedInitialState);
   });
+
+  it('should handle fetchCars action', async () => {
+    const store = configureStore({
+      reducer: { car: carReducer },
+    });
+
+    await store.dispatch(fetchCars());
+
+    const state = store.getState().car;
+
+    expect(state.data).toHaveLength(0);
+    expect(state.status).toBe('succeeded');
+    expect(state.loading).toBe(false);
+    expect(state.error).toBe(null);
+  });
 });

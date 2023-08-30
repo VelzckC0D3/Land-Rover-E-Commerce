@@ -10,7 +10,6 @@ describe('reservSlice', () => {
   };
 
     const initialState = authReducer(undefined, {});
-
     expect(initialState).toEqual(expectedInitialState);
   });
 });
