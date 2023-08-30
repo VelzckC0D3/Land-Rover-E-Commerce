@@ -186,8 +186,7 @@
 
 .icon:hover {
   color: rgb(131, 131, 131);
-
-transform: scale(1.05);
+  transform: scale(1.05);
 }
 
 /* TABLET */
