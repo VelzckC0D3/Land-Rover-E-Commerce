@@ -13,11 +13,10 @@ import { BsInstagram, BsFacebook, BsTwitter } from "react-icons/bs";
 
 function Vehicles() {
   const dispatch = useDispatch();
-  const cars = useSelector((state) => state.car.data);
-  const sortedCars = cars
+  const cars = useSelector((state) => state.car);
+  const sortedCars = cars.data
     .slice()
     .sort((a, b) => new Date(a.created_at) - new Date(b.created_at));
-  const [imagesLoaded, setImagesLoaded] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -31,25 +30,26 @@ function Vehicles() {
     fetchData();
   }, [dispatch]);
 
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setImagesLoaded(true);
-    }, 1500);
+  
 
-    return () => clearTimeout(timer);
-  }, []);
+  if (cars.loading) {
+    return <div>
+      Loading...
+      <StageSpinner size={50} color="#000000" loading={true} />
+      </div>;
+  }
 
-  return (
-    <>
-      <div className="vehiclesCont">
-        <div className="vehiclesHeader">
-          <h1 className="vehiclesTitle">LATEST MODELS</h1>
-          <p className="vehiclesSub">Please select a Land Rover model.</p>
-          <div className="divider" />
-        </div>
+    return (
+      <>
+        <div className="vehiclesCont">
+          <div className="vehiclesHeader">
+            <h1 className="vehiclesTitle">LATEST MODELS</h1>
+            <p className="vehiclesSub">Please select a Land Rover model.</p>
+            <div className="divider" />
+          </div>
 
-        <style>
-          {`
+          <style>
+            {`
             @media (min-width: 410px) {
               .carImg::before {
                 width: 11rem;
@@ -118,44 +118,42 @@ function Vehicles() {
             }
 
           `}
-        </style>
+          </style>
 
-        <Swiper
-          breakpoints={{
-            0: {
-              slidesPerView: 1,
-              spaceBetween: 100,
-            },
-            768: {
-              slidesPerView: 2,
-              spaceBetween: 10,
-            },
-            1024: {
-              slidesPerView: 3,
-              spaceBetween: 10,
-            },
-          }}
-          cssMode={true}
-          navigation={true}
-          direction="horizontal"
-          modules={[Navigation]}
-          className="swiperCont"
-        >
-          {sortedCars.map((car) => (
-            <SwiperSlide className="vehicleSwiper" key={car.id}>
-              <Link to={`/car_details/${car.id}`} className="carLink">
-                <div className="carCard">
-                  <div className={`carImg car${car.id}`}>
-                    <style>
-                      {`
+          <Swiper
+            breakpoints={{
+              0: {
+                slidesPerView: 1,
+                spaceBetween: 100,
+              },
+              768: {
+                slidesPerView: 2,
+                spaceBetween: 10,
+              },
+              1024: {
+                slidesPerView: 3,
+                spaceBetween: 10,
+              },
+            }}
+            cssMode={true}
+            navigation={true}
+            direction="horizontal"
+            modules={[Navigation]}
+            className="swiperCont"
+          >
+            {sortedCars.map((car) => (
+              <SwiperSlide className="vehicleSwiper" key={car.id}>
+                <Link to={`/VehicleDetails/${car.id}`} className="carLink">
+                  <div className="carCard">
+                    <div className={`carImg car${car.id}`}>
+                      <style>
+                        {`
                       .car${car.id}::before {
                         background-color: ${car.color};
                       }
 
                       .car${car.id} img {
                         width: 100%;
-                        opacity: 0;
-                        animation: fadeInTop 0.2s ease-in-out 0.${car.id}s forwards;
                       }
 
                       .divider${car.id} {
@@ -164,55 +162,47 @@ function Vehicles() {
                         height: 2px;
                       }
                     `}
-                    </style>
-                    {imagesLoaded ? (
+                      </style>
+
                       <img src={car.front_image} alt={car.name} />
-                    ) : (
-                      <>
-                        <div className="loadingText">
-                          <p>Loading</p>
-                          <StageSpinner backColor="#fff" />
-                        </div>
-                      </>
-                    )}
+                    </div>
+                    <h2>{car.name}</h2>
+                    <div className={`divider${car.id}`} />
+                    <p className="carDescription">{car.description}</p>
+                    <div className="carIcons">
+                      <a
+                        className="icon"
+                        href="https://github.com/VelzckC0D3/Land-Rover-E-Commerce"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <BsTwitter />
+                      </a>
+                      <a
+                        className="icon"
+                        href="https://github.com/VelzckC0D3/Land-Rover-E-Commerce"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <BsInstagram />
+                      </a>
+                      <a
+                        className="icon"
+                        href="https://github.com/VelzckC0D3/Land-Rover-E-Commerce"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <BsFacebook />
+                      </a>
+                    </div>
                   </div>
-                  <h2>{car.name}</h2>
-                  <div className={`divider${car.id}`} />
-                  <p className="carDescription">{car.description}</p>
-                  <div className="carIcons">
-                    <a
-                      className="icon"
-                      href="https://github.com/VelzckC0D3/Land-Rover-E-Commerce"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <BsTwitter />
-                    </a>
-                    <a
-                      className="icon"
-                      href="https://github.com/VelzckC0D3/Land-Rover-E-Commerce"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <BsInstagram />
-                    </a>
-                    <a
-                      className="icon"
-                      href="https://github.com/VelzckC0D3/Land-Rover-E-Commerce"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <BsFacebook />
-                    </a>
-                  </div>
-                </div>
-              </Link>
-            </SwiperSlide>
-          ))}
-        </Swiper>
-      </div>
-    </>
-  );
-}
+                </Link>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </div>
+      </>
+    );
+  }
 
 export default Vehicles;

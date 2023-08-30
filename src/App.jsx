@@ -6,7 +6,7 @@ import "./index.css";
 import Home from "./pages/Home";
 import Registration from "./components/auth/Registration";
 import Login from "./components/auth/Login";
-import CarDetails from "./components/car/car_details";
+import CarDetails from "./components/car/VehicleDetails";
 import Navbar from "./components/Navbar";
 import Vehicles from "./pages/Vehicles";
 import Reservation from "./pages/Reservation";
@@ -37,7 +37,7 @@ const App = () => {
           <Route path="/vehicles" element={<Vehicles />} />
           <Route path="/sign_up" element={<Registration />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/car_details/:carId" element={<CarDetails />} />
+          <Route path="/VehicleDetails/:carId" element={<CarDetails />} />
           <Route path="/reservation" element={<Reservation />} />
           <Route path="/reservation/:carId" element={<ReservationForm />} />
           <Route path="/my-reservs" element={<My_reservations />} />
