@@ -119,11 +119,29 @@ npm run build
 <!-- AUTHORS -->
 
 ## 👥 Authors <a name="authors"></a>
+👤 **Alejandro Velasquez**
+- GitHub: [@Metaverse-Nabeel]()
+- LinkedIn: [@Nabeel129]()
+- Twitter: [@twitterhandle]()
+
 
 👤 **Nabeel Ahmed**
 - GitHub: [@Metaverse-Nabeel](https://github.com/Metaverse-Nabeel)
 - LinkedIn: [@Nabeel129](https://www.linkedin.com/in/nabeel129/)
 - Wellfound(AngelList): [@Nabeel129](https://wellfound.com/u/nabeel-ahmed-62)
+
+
+👤 **Emmanuel Mhango**
+- GitHub: [@Metaverse-Nabeel]()
+- LinkedIn: [@Nabeel129]()
+- Wellfound(AngelList): [@Nabeel129]()
+
+
+👤 **Daniel Falcon**
+- GitHub: [@Metaverse-Nabeel]()
+- LinkedIn: [@Nabeel129]()
+- Wellfound(AngelList): [@Nabeel129]()
+  
 
   👤 **Tebe Tisloh**
 
