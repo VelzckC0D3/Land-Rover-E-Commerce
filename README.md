@@ -125,6 +125,10 @@ npm run build
 - LinkedIn: [@Nabeel129](https://www.linkedin.com/in/nabeel129/)
 - Wellfound(AngelList): [@Nabeel129](https://wellfound.com/u/nabeel-ahmed-62)
 
+👤 **Emmanuel Mhango**
+- GitHub: [@emmanuellmhango](https://github.com/emmanuellmhango)
+- LinkedIn: [@emmanuellmhango](https://www.linkedin.com/in/emmanuellmhango)
+- Wellfound(AngelList): [@emmanuel-mhango](https://wellfound.com/u/emmanuel-mhango) s
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
