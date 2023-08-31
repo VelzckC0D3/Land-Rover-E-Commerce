@@ -64,7 +64,8 @@
   content: "";
   background-image: url(/src/assets/image/rotate.svg);
   background-repeat: no-repeat;
-  background-size: contain;
+  background-size: 1.8rem;
+  background-position: center;
   width: 2.5rem;
   height: 2.5rem;
   background-color: rgb(0 0 0 / 16%);
@@ -267,7 +268,9 @@
   }
 
   .detailsSwiper {
-    height: 100vh;
+    /* stylelint-disable */
+    height: 100dvh;
+    /* stylelint-enable */
     margin: 0;
   }
 
@@ -280,7 +283,9 @@
     bottom: 0;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    transform: translateY(-18vh);
+    /* stylelint-disable */
+    transform: translateY(-18dvh);
+    /* stylelint-enable */
   }
 
   .detailsRotate {

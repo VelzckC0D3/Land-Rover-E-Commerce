@@ -23,12 +23,12 @@ const Login = () => {
       <style>
         {`
 
-.divider {
-  width: 100%;
-  height: 2px;
-  background-color: white;
-  margin-top: 1rem;
-}
+          .divider {
+            width: 100%;
+            height: 2px;
+            background-color: white;
+            margin-top: 1rem;
+          }
 
           .navButton{
             filter: brightness(0) invert(1);

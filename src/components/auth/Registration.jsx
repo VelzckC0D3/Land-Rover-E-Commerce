@@ -99,6 +99,7 @@ const Registration = () => {
           <div className="inputsCont">
             <div className="inputCont">
               <input
+                required={true}
                 type="text"
                 name="name"
                 placeholder="Full Name"
@@ -108,6 +109,7 @@ const Registration = () => {
               {errors.name && <span>Full Name is required</span>}
 
               <input
+                required={true}
                 type="email"
                 name="email"
                 placeholder="E-mail"
@@ -119,6 +121,7 @@ const Registration = () => {
             <div className="divider" />
             <div className="inputCont">
               <input
+                required={true}
                 type="password"
                 name="password"
                 placeholder="Password"
@@ -128,6 +131,7 @@ const Registration = () => {
               {errors.password && <span>Password is required</span>}
 
               <input
+                required={true}
                 type="password"
                 name="password_confirmation"
                 placeholder="Password Confirmation"
@@ -142,7 +146,7 @@ const Registration = () => {
                 <span>{errors.password_confirmation.message}</span>
               )}
             </div>
-          <div className="divider" />
+            <div className="divider" />
           </div>
           <button type="submit">Register</button>
         </form>

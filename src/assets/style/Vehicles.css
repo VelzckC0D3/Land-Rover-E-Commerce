@@ -52,7 +52,9 @@
 }
 
 .swiperCont {
-  width: 100vw;
+  /* stylelint-disable */
+  width: 100dvw;
+  /* stylelint-enable */
   height: 35rem;
   user-select: none;
   padding: 0 2rem;

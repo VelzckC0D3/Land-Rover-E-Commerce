@@ -1,6 +1,6 @@
 .loginFormCont {
   background-color: #ffb400;
-  background-image: url(../image/form1.jpg);
+  background-image: url(../image/form1.webp);
   background-size: cover;
   background-position: -15% 40%;
   z-index: 1;
@@ -27,7 +27,6 @@
   width: 100%;
   padding: 1rem;
   max-width: 35rem;
-  text-align: center;
   font-size: 2rem;
   margin-bottom: 1rem;
   text-align: center;
@@ -62,8 +61,6 @@
   color: rgb(255, 255, 255);
   font-size: 1.3rem;
 }
-
-
 
 .formCont button {
   display: block;
