@@ -1,3 +1,3 @@
-const apiURL = "https://rails-n9iu.onrender.com/";
+const apiURL = "https://rails-ryyk.onrender.com/";
 
 export default apiURL;
