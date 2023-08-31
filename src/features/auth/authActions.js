@@ -1,14 +1,13 @@
 import axios from 'axios';
 import { authRequest, authSuccess, authFailure, logout } from './authSlice';
 import { toast } from 'react-hot-toast';
-
-const API_BASE_URL = 'http://192.168.1.1:3000';
+import apiURL from './url';
 
 export const registerUser = (formData) => async (dispatch) => {
     dispatch(authRequest());
 
     try {
-        const response = await axios.post(`${API_BASE_URL}/signup`, { user: formData }, {
+        const response = await axios.post(`${apiURL}/signup`, { user: formData }, {
             headers: {
                 'Content-Type': 'application/json',
             },
@@ -34,7 +33,7 @@ export const loginUser = (formData) => async (dispatch) => {
     dispatch(authRequest());
 
     try {
-        const response = await axios.post(`${API_BASE_URL}/login`, { user: formData }, {
+        const response = await axios.post(`${apiURL}/login`, { user: formData }, {
             headers: {
                 'Content-Type': 'application/json',
             },
@@ -60,7 +59,7 @@ export const loginUser = (formData) => async (dispatch) => {
 export const logoutUser = () => async (dispatch, getState) => {
     try {
         const { token } = getState().auth;
-        const response = await axios.delete(`${API_BASE_URL}/logout`, {
+        const response = await axios.delete(`${apiURL}/logout`, {
             headers: {
                 'Content-Type': 'application/json',
                 Authorization: token,
