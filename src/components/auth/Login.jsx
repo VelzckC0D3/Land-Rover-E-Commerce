@@ -22,6 +22,14 @@ const Login = () => {
     <>
       <style>
         {`
+
+.divider {
+  width: 100%;
+  height: 2px;
+  background-color: white;
+  margin-top: 1rem;
+}
+
           .navButton{
             filter: brightness(0) invert(1);
           }
@@ -31,8 +39,24 @@ const Login = () => {
             -webkit-transform: rotate(360deg);
             filter: brightness(1) invert(0);
           }
+
+          input:-webkit-autofill,
+          input:-webkit-autofill:hover, 
+          input:-webkit-autofill:focus, 
+          input:-webkit-autofill:active  {
+            transition: background-color 5000s;
+            -webkit-text-fill-color: #fff !important;
+          }
           
           @media (min-width: 900px) {
+
+            .navButton {
+              display: block
+            }
+      
+            .navCont {
+              transition: transform 0.5s ease-in-out, box-shadow 1s ease-in-out;
+            }
 
             .loginFormCont {
               background-position: 28rem 40%;
@@ -54,16 +78,6 @@ const Login = () => {
 
             .loginForm .formInput {
               font-size: 1.3rem;
-            }
-          }
-
-          @media (min-width: 900px) {
-            .navButton {
-              display: block
-            }
-      
-            .navCont {
-              transition: transform 0.5s ease-in-out, box-shadow 1s ease-in-out;
             }
           }
 
@@ -107,6 +121,7 @@ const Login = () => {
               {...register("password", { required: "Password is required" })}
             />
           </div>
+          <div className="divider" />
           <button type="submit">Login</button>
         </form>
       </section>

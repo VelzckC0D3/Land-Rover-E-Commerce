@@ -86,7 +86,7 @@ const Navbar = () => {
                   className="navAnchor"
                   onClick={handleNav}
                 >
-                  Test Drive
+                  Make a Reservation
                 </Link>
               </li>
 
@@ -96,7 +96,7 @@ const Navbar = () => {
                   className="navAnchor"
                   onClick={handleNav}
                 >
-                  My Tests Drive
+                  My Reservations
                 </Link>
               </li>
 

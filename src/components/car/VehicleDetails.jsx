@@ -40,16 +40,16 @@ function CarDetails() {
   const minimumDeposit = car.price * 0.01 * duration;
   const totalAmount = car.price + financeFee * 2;
 
-  const scheduleTestDrive = isAuthenticated ? (
+  const makeReservation = isAuthenticated ? (
     <Link to={`/reservation/${car.id}`}>
       <button className="scheduleBtn">
-        Schedule Test Drive
+        Make Reservation
         <FaAngleRight />
       </button>
     </Link>
   ) : (
     <button className="scheduleBtn" onClick={() => navigate("/login")}>
-      Schedule Test Drive
+      Make Reservation
       <FaAngleRight />
     </button>
   );
@@ -238,7 +238,7 @@ function CarDetails() {
         <div className="divider" />
         <div className="detailsSchedule">
           <p className="scheduleText">Are you interested in this vehicle?</p>
-          {scheduleTestDrive}
+          {makeReservation}
         </div>
       </div>
     </div>
