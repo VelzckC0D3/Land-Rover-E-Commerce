@@ -1,7 +1,9 @@
 import axios from "axios";
 import { authRequest, authSuccess, authFailure, logout } from "./authSlice";
 import { toast } from "react-hot-toast";
+
 import apiURL from "../auth/urls";
+
 
 export const registerUser = (formData) => async (dispatch) => {
   dispatch(authRequest());

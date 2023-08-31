@@ -151,10 +151,6 @@
   transform: scale(1);
 }
 
-.carCard:hover {
-  transform: scale(1.03);
-}
-
 .carDescription {
   text-align: center;
   display: flex;
