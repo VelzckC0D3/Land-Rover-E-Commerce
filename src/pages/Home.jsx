@@ -24,9 +24,18 @@ const Home = () => {
       filter: brightness(1) invert(0);
     }
 
-    
     .swiper-slide-active {
       transition: opacity 1s ease-in-out !important;
+    }
+
+    @media (min-width: 900px) {
+      .navButton {
+        display: block
+      }
+
+      .navCont {
+        transition: transform 0.5s ease-in-out, box-shadow 1s ease-in-out;
+      }
     }
     `}</style>
       <Swiper
