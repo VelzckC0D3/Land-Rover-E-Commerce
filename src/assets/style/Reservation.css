@@ -10,7 +10,7 @@
   background-blend-mode: multiply;
 }
 
-.registerForm {
+.reservForm {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -19,12 +19,12 @@
   width: 100%;
   max-width: 35rem;
   border-radius: 1rem;
-  background-color: rgba(228, 39, 39, 0);
+  background-color: rgba(0, 0, 0, 0);
   backdrop-filter: blur(8px);
   padding: 2rem;
 }
 
-.registerForm .inputCont {
+.reservForm .inputCont {
   display: flex;
   flex-direction: column;
   gap: 1rem;
@@ -33,7 +33,7 @@
   width: 100%;
 }
 
-.registerForm .formInput {
+.reservForm .formInput {
   width: 100%;
   max-width: 35rem;
   padding: 10px;
@@ -45,11 +45,11 @@
   font-size: 1.3rem;
 }
 
-.registerForm .formInput:focus {
+.reservForm .formInput:focus {
   outline: none;
 }
 
-.registerForm .formInput::placeholder {
+.reservForm .formInput::placeholder {
   color: black;
   font-size: 1.3rem;
 }

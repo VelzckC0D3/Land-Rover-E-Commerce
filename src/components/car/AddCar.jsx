@@ -73,7 +73,7 @@ function AddCarForm() {
           placeholder="Back Image URL"
           {...register("back_image", { required: true })}
         />
-=
+
         <label htmlFor="color">Color</label>
         <input
           type="color"

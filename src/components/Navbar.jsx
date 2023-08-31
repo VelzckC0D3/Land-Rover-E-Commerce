@@ -86,7 +86,7 @@ const Navbar = () => {
                   className="navAnchor"
                   onClick={handleNav}
                 >
-                  Reservation
+                  Test Drive
                 </Link>
               </li>
 
@@ -96,7 +96,7 @@ const Navbar = () => {
                   className="navAnchor"
                   onClick={handleNav}
                 >
-                  My Reservations
+                  My Tests Drive
                 </Link>
               </li>
 
@@ -122,7 +122,7 @@ const Navbar = () => {
 
               <li className="navLink">
                 <Link
-                to={`/`}
+                  to={`/`}
                   className="navAnchor"
                   onClick={() => {
                     handleLogout();

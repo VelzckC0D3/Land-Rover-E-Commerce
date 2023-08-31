@@ -52,7 +52,6 @@
     "stylelint-config-standard": "^21.0.0",
     "stylelint-csstree-validator": "^1.9.0",
     "stylelint-scss": "^3.21.0",
-    "ts-jest": "^29.1.1",
     "vite": "^4.4.5"
   }
 }
