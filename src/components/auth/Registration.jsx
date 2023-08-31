@@ -1,13 +1,39 @@
-import { useDispatch } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
-import { useForm } from 'react-hook-form';
-import { registerUser } from '../../features/auth/authActions';
-import '../../assets/style/Register.css';
+import { useState, useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { useForm } from "react-hook-form";
+import { registerUser } from "../../features/auth/authActions";
+import "../../assets/style/Registration.css";
 
 const Registration = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { register, handleSubmit, formState: { errors }, getValues } = useForm();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    getValues,
+  } = useForm();
+
+  const [backgroundColor, setBackgroundColor] = useState("rgb(255, 180, 0)");
+
+  useEffect(() => {
+    const interval = setInterval(changeBackgroundColor, 3000);
+    return () => clearInterval(interval);
+  }, []);
+
+  const changeBackgroundColor = () => {
+    // Generate a random color for the background
+    const randomColor =
+      "rgb(" +
+      Math.floor(Math.random() * 256) +
+      "," +
+      Math.floor(Math.random() * 256) +
+      "," +
+      Math.floor(Math.random() * 256) +
+      ")";
+    setBackgroundColor(randomColor);
+  };
 
   const onSubmit = (formData) => {
     dispatch(registerUser(formData));

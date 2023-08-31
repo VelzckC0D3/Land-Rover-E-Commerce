@@ -257,10 +257,8 @@
 
   .detailsSwiperCont {
     width: 70%;
-
     /* stylelint-disable */
     height: 100dvw;
-
     /* stylelint-enable */
     display: flex;
     flex-direction: column;
@@ -296,10 +294,8 @@
   .detailsInfoCont {
     width: 100%;
     max-width: 30%;
-
     /* stylelint-disable */
     height: 100dvh;
-
     /* stylelint-enable */
     padding: 1rem;
     gap: 1rem;
