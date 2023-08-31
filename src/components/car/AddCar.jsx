@@ -132,8 +132,8 @@ function AddCarForm() {
             />
           </div>
 
-          <label htmlFor="color">
-            Color
+          <label htmlFor="color" className="carColor">
+            Pick Theme Color
             <input
               required={true}
               type="color"

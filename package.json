@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build && NODE_ENV=production npx tailwindcss build -o dist/tailwind.css",
+    "build": "vite build",
     "serve": "vite preview",
     "test": "jest"
   },

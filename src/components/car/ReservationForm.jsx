@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { addReservation } from "../../features/reservation/reservSlice";
 import { fetchCars } from "../../features/cars/carSlice";
@@ -9,6 +9,13 @@ import { useForm } from "react-hook-form";
 import "../../assets/style/Reservation.css";
 
 function AddReservationPage() {
+  const [selectedDate, setSelectedDate] = useState(
+    new Date().toISOString().split("T")[0]
+  );
+
+  const handleDateChange = (event) => {
+    setSelectedDate(event.target.value);
+  };
   const navigate = useNavigate();
   const { carId } = useParams();
   const dispatch = useDispatch();
@@ -38,37 +45,74 @@ function AddReservationPage() {
   };
 
   return (
-    <div className="formCont">
+    <>
       <style>
         {`
+
+        .divider {
+          margin-top: 0.5rem;
+          width: 100%;
+          background-color: white;
+        }
+
+        .navButton{
+          filter: brightness(0) invert(1);
+        }
+        .btnActive {
+          transform: rotate(360deg);
+          -webkit-transform: rotate(360deg);
+          filter: brightness(1) invert(0);
+        }
+
         .formCont{
           background-color: grey;
         }
+          @media (min-width: 900px) {
+          .navButton {
+            display: block
+          }
+          .navCont {
+            transition: transform 0.5s ease-in-out, box-shadow 1s ease-in-out;
+          }
+        }
         `}
       </style>
-      <h2 className="formTitle">Test Drive</h2>
-      <form className="reservForm" onSubmit={handleSubmit(onSubmit)}>
-        <input
-          type="text"
-          name="city"
-          placeholder="City"
-          {...register("city", { required: true })}
-          className="formInput"
-        />
+      <div className="formCont reservationCont">
+        <form className="reservationForm" onSubmit={handleSubmit(onSubmit)}>
+          <h2 className="formTitle">Test Drive</h2>
+          <p className="formDesc">
+            Book your test drive today for a chance to experience the excitement
+            of driving a supercar! We&rsquo;ll get in touch with you to confirm your
+            reservation and make it happen.
+          </p>
+          <input
+            type="text"
+            name="city"
+            placeholder="City"
+            {...register("city", { required: true })}
+            className="formInput"
+          />
 
-        <input
-          type="date"
-          name="date"
-          {...register("date", { required: true })}
-          min={new Date().toISOString().split("T")[0]}
-          className="formInput"
-        />
+          <input
+            required={true}
+            type="date"
+            name="date"
+            placeholder="Date"
+            autoComplete="on"
+            value={selectedDate}
+            onChange={handleDateChange}
+            min={new Date().toISOString().split("T")[0]}
+            className="formInput"
+          />
 
-        <button className="formInput" type="submit">
-          New Test Drive
-        </button>
-      </form>
-    </div>
+          <div className="divider" />
+
+          <button type="submit">
+            Book Reservation
+          </button>
+        </form>
+      </div>
+    </>
   );
 }
 
