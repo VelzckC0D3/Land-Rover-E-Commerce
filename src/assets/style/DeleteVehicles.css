@@ -41,7 +41,7 @@
   max-width: 15rem;
 }
 
-.deleteSwiperCar::before{
+.deleteSwiperCar::before {
   content: '';
   position: absolute;
   width: 100%;

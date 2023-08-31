@@ -1,29 +1,29 @@
 .myReservationsCont {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .reservationsEmpty {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
 }
 
 .reservationsEmpty h1 {
-    font-family: 'Bruno Ace', cursive;
-    -webkit-text-stroke: 0.5px;
-    border-bottom: 2px solid black;
-    opacity: 0;
-    animation: fadeInTop 0.2s ease-in-out forwards;
+  font-family: 'Bruno Ace', cursive;
+  -webkit-text-stroke: 0.5px;
+  border-bottom: 2px solid black;
+  opacity: 0;
+  animation: fadeInTop 0.2s ease-in-out forwards;
 }
 
 .reservationsEmpty p {
-    opacity: 0;
-    animation: fadeInTop 0.2s ease-in-out 0.1s forwards;
+  opacity: 0;
+  animation: fadeInTop 0.2s ease-in-out 0.1s forwards;
 }
