@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addReservation } from "../features/reservation/reservSlice";
 import { fetchCars } from "../features/cars/carSlice";
@@ -11,14 +11,6 @@ function AddReservationPage() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const cars = useSelector((state) => state.car.data);
-
-  const [selectedDate, setSelectedDate] = useState(
-    new Date().toISOString().split("T")[0]
-  );
-
-  const handleDateChange = (event) => {
-    setSelectedDate(event.target.value);
-  };
 
   const userFromLocalStorage = JSON.parse(localStorage.getItem("user"));
   const userId = userFromLocalStorage ? userFromLocalStorage.id : null;
@@ -116,13 +108,10 @@ function AddReservationPage() {
           />
           {errors.city && <span>This field is required</span>}
           <input
-            required={true}
             type="date"
             name="date"
             placeholder="Date"
-            autoComplete="on"
-            value={selectedDate}
-            onChange={handleDateChange}
+            {...register("date", { required: true })}
             min={new Date().toISOString().split("T")[0]}
             className="formInput"
           />

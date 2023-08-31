@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { addReservation } from "../../features/reservation/reservSlice";
 import { fetchCars } from "../../features/cars/carSlice";
@@ -9,13 +9,6 @@ import { useForm } from "react-hook-form";
 import "../../assets/style/Reservation.css";
 
 function AddReservationPage() {
-  const [selectedDate, setSelectedDate] = useState(
-    new Date().toISOString().split("T")[0]
-  );
-
-  const handleDateChange = (event) => {
-    setSelectedDate(event.target.value);
-  };
   const navigate = useNavigate();
   const { carId } = useParams();
   const dispatch = useDispatch();
@@ -82,8 +75,8 @@ function AddReservationPage() {
           <h2 className="formTitle">Test Drive</h2>
           <p className="formDesc">
             Book your test drive today for a chance to experience the excitement
-            of driving a supercar! We&rsquo;ll get in touch with you to confirm your
-            reservation and make it happen.
+            of driving a supercar! We&rsquo;ll get in touch with you to confirm
+            your reservation and make it happen.
           </p>
           <input
             type="text"
@@ -94,22 +87,17 @@ function AddReservationPage() {
           />
 
           <input
-            required={true}
             type="date"
             name="date"
             placeholder="Date"
-            autoComplete="on"
-            value={selectedDate}
-            onChange={handleDateChange}
+            {...register("date", { required: true })}
             min={new Date().toISOString().split("T")[0]}
             className="formInput"
           />
 
           <div className="divider" />
 
-          <button type="submit">
-            Book Reservation
-          </button>
+          <button type="submit">Book Reservation</button>
         </form>
       </div>
     </>
