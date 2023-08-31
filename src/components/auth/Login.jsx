@@ -57,6 +57,16 @@ const Login = () => {
             }
           }
 
+          @media (min-width: 900px) {
+            .navButton {
+              display: block
+            }
+      
+            .navCont {
+              transition: transform 0.5s ease-in-out, box-shadow 1s ease-in-out;
+            }
+          }
+
           @media (min-width: 1024px) {
 
             .loginFormCont {

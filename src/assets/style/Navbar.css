@@ -40,6 +40,15 @@
   justify-content: space-between;
 }
 
+.alo {
+  transition: all 0s !important;
+}
+
+.alos {
+  display: none;
+  transition: all 0s !important;
+}
+
 .active {
   transform: translateX(0);
   box-shadow: 10px 0 10px rgba(0, 0, 0, 0.1);
@@ -140,3 +149,20 @@
   font-size: 0.8rem;
   color: rgb(126, 126, 126);
 }
+
+
+/* TABLET */
+
+@media (min-width: 900px) {
+
+  .navButton {
+    display: none;
+  }
+  
+  .navCont{
+    transition: all 0s;
+  }
+
+}
+
+/* TABLET */
