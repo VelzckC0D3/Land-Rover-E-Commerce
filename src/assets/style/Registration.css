@@ -1,0 +1,36 @@
+.registrationFormCont {
+  background-color: #3484d5;
+  background-image: url(../image/form2.webp);
+  background-size: cover;
+  background-position: -15% 40%;
+  z-index: 1;
+}
+
+.registrationForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  width: 100%;
+  max-width: 35rem;
+  border-radius: 1rem;
+  background-color: rgba(0, 0, 0, 0);
+  backdrop-filter: blur(8px);
+  padding: 2rem;
+}
+
+.inputsCont {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+
+.inputsCont .divider {
+  width: 100%;
+  height: 2px;
+  background-color: white;
+}

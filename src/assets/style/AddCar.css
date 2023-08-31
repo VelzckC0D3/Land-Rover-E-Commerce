@@ -1,0 +1,149 @@
+.carFormCont {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  background-repeat: no-repeat;
+  background-blend-mode: multiply;
+  background-size: 100vh;
+  background-position: 120% 50%;
+}
+
+.addCar {
+  background-image: url(../image/form3.webp);
+  background-color: #7857d5;
+}
+
+.carForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+  max-width: 35rem;
+  border-radius: 1rem;
+  background-color: rgba(0, 0, 0, 0);
+  backdrop-filter: blur(8px);
+  padding: 2rem;
+  transform: scale(0.9);
+}
+
+.carFormTitle {
+  color: rgb(255, 255, 255);
+  border-color: rgb(255, 255, 255);
+}
+
+.mainInputs {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.carFormInput {
+  width: 100%;
+  max-width: 35rem;
+  padding: 10px;
+  border: 2px solid rgb(255, 255, 255);
+  border-radius: 7rem;
+  background-color: rgba(247, 4, 4, 0);
+  -webkit-backdrop-filter: blur(7px);
+  backdrop-filter: blur(7px);
+  color: rgb(255, 255, 255);
+  font-size: 1.3rem;
+}
+
+.carFormArea {
+  background-color: rgba(247, 4, 4, 0);
+  border: 2px solid white;
+  border-radius: 2rem;
+  resize: none;
+  width: 100%;
+  height: 5rem;
+  font-size: 1.3rem;
+  color: white;
+  padding: 0.5rem;
+}
+
+.carFormInput:focus,
+.carFormArea:focus {
+  outline: none;
+}
+
+.carFormInput::placeholder,
+.carFormArea::placeholder {
+  color: rgb(255, 255, 255);
+  font-size: 1.3rem;
+}
+
+.imageInputs {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+}
+
+.imageInputTitle {
+  text-align: center;
+}
+
+.carForm button {
+  display: block;
+  width: 100%;
+  max-width: 15rem;
+  padding: 10px;
+  background-color: rgba(0, 0, 0, 0);
+  color: #fff;
+  border: 2px solid white;
+  border-radius: 7rem;
+  cursor: pointer;
+  font-size: 1.3rem;
+  margin: 1rem;
+}
+
+.carForm button:hover {
+  background-color: rgb(126, 160, 16);
+}
+
+.carColor {
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+  gap: 1rem;
+  border: 2px solid white;
+  border-radius: 7rem;
+  width: 100%;
+  padding: 0.7rem 1rem;
+}
+
+/* MOBILE */
+
+@media (min-width: 300px) {
+  .carForm {
+    transform: scale(0.8);
+  }
+}
+
+@media (min-width: 600px) {
+  .carFormCont {
+    background-position: 180% 50%;
+  }
+}
+
+@media (min-width: 780px) {
+  .carFormCont {
+    background-position: -23rem 50%;
+  }
+}
+
+@media (min-width: 1280px) {
+  .carFormCont {
+    background-position: center;
+  }
+}
+
+/* MOBILE */

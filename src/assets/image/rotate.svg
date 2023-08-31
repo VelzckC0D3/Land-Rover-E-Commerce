@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg viewBox="-4.8 -4.8 57.6 57.6" fill="#000000" xmlns="http://www.w3.org/2000/svg">
+  <g id="SVGRepo_bgCarrier" stroke-width="0"/>
+  <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"/>
+  <g id="SVGRepo_iconCarrier">
+    <title>rotate-left-solid</title>
+    <g id="Layer_2" data-name="Layer 2">
+      <g id="invisible_box" data-name="invisible box">
+        <rect width="48" height="48" fill="none"/>
+      </g>
+      <g id="icons_Q2" data-name="icons Q2">
+        <g>
+          <path d="M 4.553 12.849 C 5.772 12.664 6.867 13.616 6.853 14.849 L 6.853 19.749 C 18.477 7.432 39.075 12.317 43.93 28.542 C 44.542 30.589 44.853 32.713 44.853 34.849 C 44.853 36.389 43.186 37.351 41.853 36.581 C 41.234 36.224 40.853 35.564 40.853 34.849 C 40.839 20.993 25.83 12.348 13.837 19.288 C 12.197 20.237 10.718 21.439 9.453 22.849 L 14.753 22.849 C 15.773 22.83 16.659 23.548 16.853 24.549 C 17.038 25.768 16.086 26.863 14.853 26.849 L 4.853 26.849 C 3.748 26.849 2.853 25.954 2.853 24.849 L 2.853 14.949 C 2.834 13.929 3.551 13.043 4.553 12.849 Z" style="fill: rgb(255, 255, 255);"/>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>
