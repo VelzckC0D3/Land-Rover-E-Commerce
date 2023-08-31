@@ -57,7 +57,7 @@
   width: 100%;
   max-width: 35rem;
   padding: 10px;
-  border: 2px solid #ffffff;
+  border: 2px solid #fff;
   border-radius: 7rem;
   background-color: rgba(0, 0, 0, 0);
   backdrop-filter: blur(7px);
@@ -80,7 +80,7 @@
   max-width: 15rem;
   padding: 10px;
   background-color: rgba(0, 0, 0, 0);
-  color: #ffffff;
+  color: #fff;
   border: 2px solid white;
   border-radius: 7rem;
   cursor: pointer;
