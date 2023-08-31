@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'; // Import useState
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchReservations, deleteReservation } from '../features/reservation/reservSlice';
 import { fetchCars } from '../features/cars/carSlice';
