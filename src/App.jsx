@@ -12,7 +12,7 @@ import Vehicles from "./pages/Vehicles";
 import Reservation from "./pages/Reservation";
 import ReservationForm from "./components/car/ReservationForm";
 import My_reservations from "./pages/My_reservations";
-import DeleteCar from "./components/car/DeleteCar";
+import DeleteVehicle from "./components/car/DeleteVehicle";
 import AddCar from "./components/car/AddCar";
 import { authSuccess } from "./features/auth/authSlice";
 
@@ -41,7 +41,7 @@ const App = () => {
           <Route path="/reservation" element={<Reservation />} />
           <Route path="/reservation/:carId" element={<ReservationForm />} />
           <Route path="/my-reservs" element={<My_reservations />} />
-          <Route path="/deletecars" element={<DeleteCar />} />
+          <Route path="/deletecars" element={<DeleteVehicle />} />
           <Route path="/addcars" element={<AddCar />} />
         </Routes>
       </Router>

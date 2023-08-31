@@ -14,29 +14,38 @@ const Home = () => {
   return (
     <>
       <style>{`
-    .navButton{
-      filter: brightness(0) invert(1);
-    }
+        .swiper-pagination {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-end;
+          gap: 0.5rem;
+          bottom: 2rem !important;
+          padding: 0 1rem;
+        }
 
-    .btnActive {
-      transform: rotate(360deg);
-      -webkit-transform: rotate(360deg);
-      filter: brightness(1) invert(0);
-    }
+        .navButton{
+          filter: brightness(0) invert(1);
+        }
 
-    .swiper-slide-active {
-      transition: opacity 1s ease-in-out !important;
-    }
-
-    @media (min-width: 900px) {
-      .navButton {
-        display: block
-      }
-
-      .navCont {
-        transition: transform 0.5s ease-in-out, box-shadow 1s ease-in-out;
-      }
-    }
+        .btnActive {
+          transform: rotate(360deg);
+          -webkit-transform: rotate(360deg);
+          filter: brightness(1) invert(0);
+        }
+      
+        .swiper-slide-active {
+          transition: opacity 1s ease-in-out !important;
+        }
+      
+        @media (min-width: 900px) {
+          .navButton {
+            display: block
+          }
+        
+          .navCont {
+            transition: transform 0.5s ease-in-out, box-shadow 1s ease-in-out;
+          }
+        }
     `}</style>
       <Swiper
         direction="horizontal"

@@ -86,15 +86,6 @@
   /* stylelint-enable */
 }
 
-.swiper-pagination {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  gap: 0.5rem;
-  bottom: 2rem !important;
-  padding: 0 1rem;
-}
-
 .swiper-pagination-bullet {
   background-color: transparent !important;
   border: 1px solid white !important;
