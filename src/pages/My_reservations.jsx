@@ -38,11 +38,11 @@ function UserReservation() {
 
     return (
         <div className='container'>
-            <h2>Reservations</h2>
+            <h2>Tests Drive</h2>
             {loading ? (
                 <p>Loading...</p>
             ) : userReservations.length === 0 ? (
-                <p>No reservations found.</p>
+                <p>No Test Drive found.</p>
             ) : (
                 <ul>
                     {userReservations.map((reservation) => (

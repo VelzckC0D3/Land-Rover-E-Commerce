@@ -6,6 +6,7 @@ import { toast } from 'react-hot-toast';
 import { useParams } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
+import '../../assets/style/Reservation.css'
 
 function AddReservationPage() {
     const navigate = useNavigate();
@@ -37,27 +38,26 @@ function AddReservationPage() {
     };
 
     return (
-        <div className="container">
-            <h2>Add Reservation</h2>
-            <form onSubmit={handleSubmit(onSubmit)}>
-                <label>
-                    City:
-                    <input
-                        type="text"
-                        name="city"
-                        {...register('city', { required: true })}
-                    />
-                </label>
-                <label>
-                    Date:
-                    <input
-                        type="date"
-                        name="date"
-                        {...register('date', { required: true })}
-                        min={new Date().toISOString().split('T')[0]}
-                    />
-                </label>
-                <button type="submit">Add Reservation</button>
+        <div className="formCont">
+            <h2 className="formTitle" >Test Drive</h2>
+            <form className="reservForm" onSubmit={handleSubmit(onSubmit)}>
+                <input
+                    type="text"
+                    name="city"
+                    placeholder='City'
+                    {...register('city', { required: true })}
+                    className="formInput"
+                />
+
+                <input
+                    type="date"
+                    name="date"
+                    {...register('date', { required: true })}
+                    min={new Date().toISOString().split('T')[0]}
+                    className="formInput"
+                />
+
+                <button className="formInput" type="submit">New Test Drive</button>
             </form>
         </div>
     );
