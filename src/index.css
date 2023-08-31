@@ -23,8 +23,8 @@
 body {
   /* stylelint-disable */
   height: 100dvh;
+  width: 100dvw;
   /* stylelint-enable */
-  width: 100vw;
 }
 
 #root {

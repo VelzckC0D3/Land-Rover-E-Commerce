@@ -52,7 +52,9 @@
 }
 
 .swiperCont {
-  width: 100vw;
+  /* stylelint-disable */
+  width: 100dvw;
+  /* stylelint-enable */
   height: 35rem;
   user-select: none;
   padding: 0 2rem;
@@ -149,10 +151,6 @@
   gap: 1rem;
   transition: all 0.3s ease-in-out;
   transform: scale(1);
-}
-
-.carCard:hover {
-  transform: scale(1.03);
 }
 
 .carDescription {

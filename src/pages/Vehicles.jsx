@@ -18,9 +18,6 @@ function Vehicles() {
     .slice()
     .sort((a, b) => new Date(a.created_at) - new Date(b.created_at));
 
-  /*   const carImages = cars.data.map((car) => car.front_image); */
-  /* I want to pre load carImages which are some Img links */
-
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -75,7 +72,7 @@ function Vehicles() {
 
             @media (min-width: 900px) {
               .vehiclesCont {
-                min-width: 85vw;
+                min-width: 50%;
               }
               .swiperCont {
                 width: 100%;
@@ -87,20 +84,23 @@ function Vehicles() {
                 transform: translateX(0px);
                 position: relative;
                 box-shadow: 10px 0 10px rgba(0, 0, 0, 0.1);
-                width: auto;
+                width: 24rem;
               }
             }
 
-            @media (min-width: 1024px) {
-              .carImg::before {
-                width: 8rem;
-                height: 8rem;
-              }
-            }
 
-            @media (min-width: 1300px) {
+            @media (min-width: 1280px) {
+
+              .navCont {
+                width: 18rem;
+              }
+
               .carImg::before {
                 width: 10rem;
+                height: 10rem;
+              }
+
+              .carDescription {
                 height: 10rem;
               }
             }
@@ -109,6 +109,10 @@ function Vehicles() {
               .carImg::before {
                 width: 12rem;
                 height: 12rem;
+              }
+
+              .carDescription {
+                font-size: 1.05rem;
               }
             }
 
@@ -132,7 +136,7 @@ function Vehicles() {
               slidesPerView: 2,
               spaceBetween: 10,
             },
-            1024: {
+            1280: {
               slidesPerView: 3,
               spaceBetween: 10,
             },

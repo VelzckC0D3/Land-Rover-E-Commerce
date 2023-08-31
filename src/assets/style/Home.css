@@ -6,7 +6,9 @@
   justify-content: center;
   align-items: center;
   gap: 2rem;
-  background-size: 80vw;
+  /* stylelint-disable */
+  background-size: 80dvw;
+  /* stylelint-enable */
   background-repeat: no-repeat;
   background-position: 50% 75%;
   background-blend-mode: multiply;
@@ -106,7 +108,9 @@
 
 .test {
   width: 100%;
-  height: 100vh;
+  /* stylelint-disable */
+  height: 100dvh;
+  /* stylelint-enable */
   content: "";
   background-color: rgb(141, 141, 141);
   display: flex;
@@ -135,7 +139,9 @@
 
 @media (min-width: 768px) {
   .homeCont {
-    background-size: 80vw;
+    /* stylelint-disable */
+    background-size: 80dvw;
+    /* stylelint-enable */
     background-position: 50% 50%;
   }
 
@@ -174,7 +180,9 @@
 
 @media (min-width: 1024px) {
   .homeCont {
-    background-size: 60vw;
+    /* stylelint-disable */
+    background-size: 60dvw;
+    /* stylelint-enable */
   }
 }
 

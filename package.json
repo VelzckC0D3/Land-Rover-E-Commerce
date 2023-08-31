@@ -5,8 +5,16 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build && NODE_ENV=production npx tailwindcss build -o dist/tailwind.css",
-    "serve": "vite preview"
+    "build": "vite build",
+    "serve": "vite preview",
+    "test": "jest"
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.jsx?$": "babel-jest"
+    },
+    "transformIgnorePatterns": [],
+    "testEnvironment": "node"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.5",
