@@ -125,6 +125,12 @@ npm run build
 - LinkedIn: [@Nabeel129](https://www.linkedin.com/in/nabeel129/)
 - Wellfound(AngelList): [@Nabeel129](https://wellfound.com/u/nabeel-ahmed-62)
 
+  👤 **Tebe Tisloh**
+
+- GitHub: [@Booze33](https://github.com/Booze33)
+- Twitter: [@twitterhandle](https://twitter.com/Tebe95645832)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/tebe-tisloh-847956225)
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
