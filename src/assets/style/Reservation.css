@@ -121,6 +121,7 @@
   .reservationCont {
     background-image: url(../image/form4.webp);
     background-position: center;
+    background-size: contain;
   }
 }
 
