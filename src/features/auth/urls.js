@@ -1,3 +1,3 @@
-const apiURL = "http://192.168.1.1:3000";
+const apiURL = "https://rails-n9iu.onrender.com/";
 
 export default apiURL;
