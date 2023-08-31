@@ -8,6 +8,8 @@
   gap: 2rem;
   background-repeat: no-repeat;
   background-blend-mode: multiply;
+  background-size: 100vh;
+  background-position: 120% 50%;
 }
 
 .addCar {
@@ -59,7 +61,7 @@
   border-radius: 2rem;
   resize: none;
   width: 100%;
-  height: 7rem;
+  height: 5rem;
   font-size: 1.3rem;
   color: white;
   padding: 0.5rem;
@@ -104,3 +106,44 @@
 .carForm button:hover {
   background-color: rgb(126, 160, 16);
 }
+
+.carColor {
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+  gap: 1rem;
+  border: 2px solid white;
+  border-radius: 7rem;
+  width: 100%;
+  padding: 0.7rem 1rem;
+}
+
+/* MOBILE */
+
+@media (min-width: 300px) {
+  .carForm {
+    transform: scale(0.8);
+  }
+}
+
+@media (min-width: 600px) {
+  .carFormCont {
+    background-position: 180% 50%;
+  }
+}
+
+@media (min-width: 780px) {
+  .carFormCont {
+    background-position: -23rem 50%;
+  }
+}
+
+@media (min-width: 1280px) {
+  .carFormCont {
+    background-position: center;
+  }
+}
+
+/* MOBILE */
