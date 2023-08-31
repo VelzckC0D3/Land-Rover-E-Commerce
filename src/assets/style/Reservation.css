@@ -24,18 +24,6 @@
   padding: 2rem;
 }
 
-.formTitle {
-  color: black;
-  font-family: "Bruno Ace", cursive;
-  border-bottom: 2px solid black;
-  width: 100%;
-  padding: 1rem;
-  max-width: 35rem;
-  text-align: center;
-  font-size: 2rem;
-  margin-bottom: 1rem;
-}
-
 .reservForm .inputCont {
   display: flex;
   flex-direction: column;
@@ -64,22 +52,4 @@
 .reservForm .formInput::placeholder {
   color: black;
   font-size: 1.3rem;
-}
-
-.formCont button {
-  display: block;
-  width: 100%;
-  max-width: 15rem;
-  padding: 10px;
-  background-color: rgba(0, 0, 0, 0);
-  color: black;
-  border: 2px solid black;
-  border-radius: 7rem;
-  cursor: pointer;
-  font-size: 1.3rem;
-  margin: 1rem;
-}
-
-.formCont button:hover {
-  background-color: rgb(126, 160, 16);
 }

@@ -1,4 +1,3 @@
-import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
@@ -15,42 +14,29 @@ const Registration = () => {
     getValues,
   } = useForm();
 
-  const [setBackgroundColor] = useState("rgb(255, 180, 0)");
-
-  useEffect(() => {
-    const interval = setInterval(changeBackgroundColor, 3000);
-    return () => clearInterval(interval);
-  });
-
-  const changeBackgroundColor = () => {
-    // Generate a random color for the background
-    const randomColor =
-      "rgb(" +
-      Math.floor(Math.random() * 256) +
-      "," +
-      Math.floor(Math.random() * 256) +
-      "," +
-      Math.floor(Math.random() * 256) +
-      ")";
-    setBackgroundColor(randomColor);
-  };
-
   const onSubmit = (formData) => {
     dispatch(registerUser(formData));
-    navigate('/');
+    navigate("/");
   };
 
   return (
     <div className="formCont">
-      <h2 className="formTitle">Registration</h2>
-      <form className="RegisterForm" onSubmit={handleSubmit(onSubmit)}>
+      <style>
+        {`
+        .formCont{
+          background-color: grey;
+        }
+        `}
+      </style>
+      <form className="registerForm" onSubmit={handleSubmit(onSubmit)}>
+        <h2 className="formTitle">Registration</h2>
         <div className="inputCont">
           <input
             type="text"
             name="name"
             placeholder="Full Name"
             className="formInput"
-            {...register('name', { required: true })}
+            {...register("name", { required: true })}
           />
           {errors.name && <span>Full Name is required</span>}
         </div>
@@ -61,7 +47,7 @@ const Registration = () => {
             name="email"
             placeholder="E-mail"
             className="formInput"
-            {...register('email', { required: true })}
+            {...register("email", { required: true })}
           />
           {errors.email && <span>Email is required</span>}
         </div>
@@ -72,7 +58,7 @@ const Registration = () => {
             name="password"
             placeholder="Password"
             className="formInput"
-            {...register('password', { required: true })}
+            {...register("password", { required: true })}
           />
           {errors.password && <span>Password is required</span>}
         </div>
@@ -83,10 +69,10 @@ const Registration = () => {
             name="password_confirmation"
             placeholder="Password Confirmation"
             className="formInput"
-            {...register('password_confirmation', {
+            {...register("password_confirmation", {
               required: true,
               validate: (value) =>
-                value === getValues('password') || 'Passwords do not match',
+                value === getValues("password") || "Passwords do not match",
             })}
           />
           {errors.password_confirmation && (
