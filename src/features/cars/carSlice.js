@@ -1,8 +1,6 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
-
-// API URL
-const apiURL = 'http://127.0.0.1:3000';
+import apiURL from '../auth/url';
 
 // Thunks
 export const fetchCars = createAsyncThunk('car/fetchCars', async () => {
