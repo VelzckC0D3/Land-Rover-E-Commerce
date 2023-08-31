@@ -130,6 +130,11 @@ npm run build
 - LinkedIn: [@Nabeel129](https://www.linkedin.com/in/nabeel129/)
 - Wellfound(AngelList): [@Nabeel129](https://wellfound.com/u/nabeel-ahmed-62)
 
+👤 **Daniel Falcon**
+
+- LinkedIn: [Danfall369](https://www.linkedin.com/in/danfall/)
+- GitHub [Danfall369](https://github.com/Danfall369)
+
 👤 **Emmanuel Mhango**
 - GitHub: [@emmanuellmhango](https://github.com/emmanuellmhango)
 - LinkedIn: [@emmanuellmhango](https://www.linkedin.com/in/emmanuellmhango)
