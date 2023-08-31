@@ -150,19 +150,16 @@
   color: rgb(126, 126, 126);
 }
 
-
 /* TABLET */
 
 @media (min-width: 900px) {
-
   .navButton {
     display: none;
   }
-  
-  .navCont{
+
+  .navCont {
     transition: all 0s;
   }
-
 }
 
 /* TABLET */
