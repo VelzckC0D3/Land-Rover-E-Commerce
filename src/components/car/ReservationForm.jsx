@@ -33,7 +33,7 @@ function AddReservationPage() {
       // Show a success toast message
       toast.success("Reservation added successfully!");
       // Redirect to "My Reservations"
-      navigate("/my-reservs");
+      navigate("/myreservations");
     });
   };
 

@@ -92,7 +92,7 @@ const Navbar = () => {
 
               <li className="navLink">
                 <Link
-                  to="/my-reservs"
+                  to="/myreservations"
                   className="navAnchor"
                   onClick={handleNav}
                 >
