@@ -15,12 +15,12 @@ const Registration = () => {
     getValues,
   } = useForm();
 
-  const [backgroundColor, setBackgroundColor] = useState("rgb(255, 180, 0)");
+  const [setBackgroundColor] = useState("rgb(255, 180, 0)");
 
   useEffect(() => {
     const interval = setInterval(changeBackgroundColor, 3000);
     return () => clearInterval(interval);
-  }, []);
+  });
 
   const changeBackgroundColor = () => {
     // Generate a random color for the background
