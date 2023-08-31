@@ -51,6 +51,14 @@
   right: 0.5rem !important;
 }
 
+.detailsSwiper .swiper-button-prev::after {
+  transform: rotate(72deg);
+}
+
+.detailsSwiper .swiper-button-next::after {
+  transform: rotate(110deg) scaleY(-1);
+}
+
 .detailsSwiper .swiper-button-prev::after,
 .detailsSwiper .swiper-button-next::after {
   content: "";
@@ -73,14 +81,6 @@
   filter: brightness(1);
 }
 
-.detailsSwiper .swiper-button-prev::after {
-  transform: rotate(72deg);
-}
-
-.detailsSwiper .swiper-button-next::after {
-  transform: rotate(110deg) scaleY(-1);
-}
-
 .detailsImgBg {
   background-color: white;
   width: 100%;
@@ -95,11 +95,7 @@
   content: "";
   width: 100%;
   height: 100%;
-  background: linear-gradient(
-    180deg,
-    rgb(0 0 0 / 40%) 0%,
-    rgb(0 0 0 / 0%) 100%
-  );
+  background: linear-gradient(180deg, rgb(0 0 0 / 40%) 0%, rgb(0 0 0 / 0%) 100%);
   position: absolute;
 }
 
@@ -261,7 +257,11 @@
 
   .detailsSwiperCont {
     width: 70%;
+
+    /* stylelint-disable */
     height: 100dvw;
+
+    /* stylelint-enable */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -296,11 +296,14 @@
   .detailsInfoCont {
     width: 100%;
     max-width: 30%;
+
+    /* stylelint-disable */
     height: 100dvh;
+
+    /* stylelint-enable */
     padding: 1rem;
     gap: 1rem;
   }
 }
 
 /* LAPTOP */
-
