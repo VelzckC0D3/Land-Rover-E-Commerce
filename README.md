@@ -135,6 +135,12 @@ npm run build
 - LinkedIn: [Danfall369](https://www.linkedin.com/in/danfall/)
 - GitHub [Danfall369](https://github.com/Danfall369)
 
+👤 **Tebe Tisloh**
+
+- GitHub: [@Booze33](https://github.com/Booze33)
+- Twitter: [@twitterhandle](https://twitter.com/Tebe95645832)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/tebe-tisloh-847956225)
+
 👤 **Emmanuel Mhango**
 - GitHub: [@emmanuellmhango](https://github.com/emmanuellmhango)
 - LinkedIn: [@emmanuellmhango](https://www.linkedin.com/in/emmanuellmhango)
