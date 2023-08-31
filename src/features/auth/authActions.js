@@ -4,7 +4,6 @@ import { toast } from "react-hot-toast";
 
 import apiURL from "../auth/urls";
 
-
 export const registerUser = (formData) => async (dispatch) => {
   dispatch(authRequest());
 
