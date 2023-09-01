@@ -38,7 +38,6 @@ function AddReservationPage() {
             setValue('date', '');
             setValue('car_id', '');
             toast.success('Reservation added successfully!');
-            // Redirect to "My Reservations"
             navigate('/my-reservs');
         });
     };
