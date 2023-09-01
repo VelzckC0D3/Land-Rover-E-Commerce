@@ -16,7 +16,7 @@ export const addReservation = createAsyncThunk(
     const response = await axios.post(`${apiURL}/api/v1/reservations`, {
       reservation: formData,
     });
-    return response.data; // Assuming your API response directly contains the added reservation data
+    return response.data;
   }
 );
 
@@ -24,7 +24,7 @@ export const deleteReservation = createAsyncThunk(
   "reservation/deleteReservation",
   async (reservId) => {
     await axios.delete(`${apiURL}/api/v1/reservations/${reservId}`);
-    return reservId; // Return the deleted reservation's ID to update the state
+    return reservId;
   }
 );
 
