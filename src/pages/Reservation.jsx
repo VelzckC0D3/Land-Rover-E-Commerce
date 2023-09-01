@@ -34,7 +34,6 @@ function AddReservationPage() {
 
     const onSubmit = (formData) => {
         dispatch(addReservation(formData)).then(() => {
-            // Reservation added successfully, reset form fields
             setValue('city', '');
             setValue('date', '');
             setValue('car_id', '');
