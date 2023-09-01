@@ -16,7 +16,7 @@ export const addCar = createAsyncThunk("car/addCar", async (formData) => {
 
 export const deleteCar = createAsyncThunk("car/deleteCar", async (carId) => {
   await axios.delete(`${apiURL}/api/v1/cars/${carId}`);
-  return carId; // Return the deleted car's ID to update the state
+  return carId;
 });
 
 // Initial state
