@@ -82,7 +82,7 @@ const Navbar = () => {
 
               <li className="navLink">
                 <Link
-                  to="/reservation"
+                  to="/new-reservation"
                   className="navAnchor"
                   onClick={handleNav}
                 >
@@ -92,7 +92,7 @@ const Navbar = () => {
 
               <li className="navLink">
                 <Link
-                  to="/myreservations"
+                  to="/my-reservations"
                   className="navAnchor"
                   onClick={handleNav}
                 >
@@ -102,7 +102,7 @@ const Navbar = () => {
 
               {isAdmin && (
                 <li className="navLink">
-                  <Link to="/addcars" className="navAnchor" onClick={handleNav}>
+                  <Link to="/new-vehicle" className="navAnchor" onClick={handleNav}>
                     New vehicle
                   </Link>
                 </li>
@@ -111,7 +111,7 @@ const Navbar = () => {
               {isAdmin && (
                 <li className="navLink">
                   <Link
-                    to="/deletecars"
+                    to="/delete-vehicle"
                     className="navAnchor"
                     onClick={handleNav}
                   >

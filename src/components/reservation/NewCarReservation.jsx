@@ -6,7 +6,8 @@ import { toast } from "react-hot-toast";
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import "../../assets/style/Reservation.css";
+import "../../assets/style/NewReservation.css";
+import { BsCalendar2Week } from "react-icons/bs";
 
 function AddReservationPage() {
   const navigate = useNavigate();
@@ -16,7 +17,7 @@ function AddReservationPage() {
   const userFromLocalStorage = JSON.parse(localStorage.getItem("user"));
   const userId = userFromLocalStorage ? userFromLocalStorage.id : null;
 
-  const { register, handleSubmit, formState: { errors }, } = useForm();
+  const { register, handleSubmit } = useForm();
 
   useEffect(() => {
     dispatch(fetchCars());
@@ -33,7 +34,7 @@ function AddReservationPage() {
       // Show a success toast message
       toast.success("Reservation added successfully!");
       // Redirect to "My Reservations"
-      navigate("/myreservations");
+      navigate("/my-reservations");
     });
   };
 
@@ -78,28 +79,34 @@ function AddReservationPage() {
             of driving a supercar! We&rsquo;ll get in touch with you to confirm
             your reservation and make it happen.
           </p>
-          <input
-            type="text"
-            name="city"
-            placeholder="City"
-            {...register("city", { required: true })}
-            className="formInput"
-          />
-          {errors.city && <span>City name is required</span>}
 
-          <input
-            type="date"
-            name="date"
-            placeholder="Date"
-            {...register("date", { required: true })}
-            min={new Date().toISOString().split("T")[0]}
-            className="formInput"
-          />
-          {errors.date && <span>Date is required</span>}
+          <div className="inputCont">
+            <input
+              type="text"
+              name="city"
+              placeholder="City"
+              {...register("city", { required: true })}
+              className="formInput"
+            />
+            <div className="inputDate">
+              <input
+                type="date"
+                name="date"
+                placeholder="Date"
+                value={new Date().toISOString().split("T")[0]}
+                {...register("date", { required: true })}
+                min={new Date().toISOString().split("T")[0]}
+                className="formInput dateInput"
+              />
+              <BsCalendar2Week className="calendarIcon" />
+            </div>
+          </div>
 
           <div className="divider" />
 
-          <button type="submit">Book Reservation</button>
+          <button className="reservationSubmit" type="submit">
+            Book Reservation
+          </button>
         </form>
       </div>
     </>

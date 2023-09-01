@@ -3,11 +3,11 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   fetchReservations,
   deleteReservation,
-} from "../features/reservation/reservSlice";
-import { fetchCars } from "../features/cars/carSlice";
+} from "../../features/reservation/reservSlice";
+import { fetchCars } from "../../features/cars/carSlice";
 import { toast } from "react-hot-toast";
 import { SwishSpinner } from "react-spinners-kit";
-import "../assets/style/MyReservations.css";
+import "../../assets/style/MyReservations.css";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Mousewheel, Pagination } from "swiper";
 import "swiper/css";
@@ -34,6 +34,13 @@ function UserReservation() {
     dispatch(deleteReservation(reservationId));
     toast.success("Reservation Deleted!");
   };
+
+  const confirmDelete = (reservationId, carName) => {
+    const result = window.confirm(`Are you sure you want to cancel the Test Drive for ${carName}?`)
+    if (result) {
+      handleDelete(reservationId);
+    }
+  }
 
   const getCarName = (carId) => {
     const car = cars.find((car) => car.id === carId);
@@ -137,7 +144,7 @@ function UserReservation() {
                   <style>
                     {`
                       .carImg${reservation.car_id} {
-                        background-image: url(${getCarImage(reservation.car_id)});
+                        background-image: url(${getCarImage(reservation.car_id, getCarName)});
                         width: 100%;
                         max-width: 20rem;
                         background-size: contain;
@@ -152,19 +159,12 @@ function UserReservation() {
                       }
                     `}
                   </style>
-                  <button className="cancelReservationBtn" onClick={() => handleDelete(reservation.id)}>
+                  <button className="cancelReservationBtn" onClick={() => confirmDelete(reservation.id, getCarName(reservation.car_id))}>
                     Cancel Reservation
                   </button>
                 </SwiperSlide>
               ))}
             </Swiper>
-
-            {/*      <div className="reservation" key={reservation.id}>
-
-             
-
-                <hr />
-              </div> */}
           </div>
         )}
       </div>

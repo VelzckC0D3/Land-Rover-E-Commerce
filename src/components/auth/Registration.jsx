@@ -10,7 +10,6 @@ const Registration = () => {
   const {
     register,
     handleSubmit,
-    formState: { errors },
     getValues,
   } = useForm();
 
@@ -31,17 +30,6 @@ const Registration = () => {
             transform: rotate(360deg);
             -webkit-transform: rotate(360deg);
             filter: brightness(1) invert(0);
-          }
-
-          input:-webkit-autofill,
-          input:-webkit-autofill:hover, 
-          input:-webkit-autofill:focus, 
-          input:-webkit-autofill::first-line, 
-          input:-internal-autofill-previewed,
-          input:-webkit-autofill:active  {
-            transition: background-color 5000s;
-            -webkit-text-fill-color: #fff !important;
-            font-size: 1.3rem;
           }
           
           @media (min-width: 900px) {
@@ -106,7 +94,6 @@ const Registration = () => {
                 className="formInput"
                 {...register("name", { required: true })}
               />
-              {errors.name && <span>Full Name is required</span>}
 
               <input
                 required={true}
@@ -116,10 +103,9 @@ const Registration = () => {
                 className="formInput"
                 {...register("email", { required: true })}
               />
-              {errors.email && <span>Email is required</span>}
             </div>
             <div className="divider" />
-            <div className="inputCont">
+            <div className="inputCont inputCont2">
               <input
                 required={true}
                 type="password"
@@ -128,7 +114,6 @@ const Registration = () => {
                 className="formInput"
                 {...register("password", { required: true })}
               />
-              {errors.password && <span>Password is required</span>}
 
               <input
                 required={true}
@@ -142,13 +127,14 @@ const Registration = () => {
                     value === getValues("password") || "Passwords do not match",
                 })}
               />
-              {errors.password_confirmation && (
-                <span>{errors.password_confirmation.message}</span>
-              )}
             </div>
-            <div className="divider" />
+            <div className="divider divider2" />
           </div>
-          <button type="submit">Register</button>
+          <button className="registrationSubmit" type="submit">Register</button>
+          <div className="formHelper registrationHelper">
+            <p className="helperText">Already have an account?</p>
+            <a className="helperLink" href="/login">Login</a>
+          </div>
         </form>
       </div>
     </>

@@ -1,10 +1,10 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { fetchCars } from "../features/cars/carSlice";
+import { fetchCars } from "../../features/cars/carSlice";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper";
-import "../assets/style/Vehicles.css";
+import "../../assets/style/Vehicles.css";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
@@ -149,7 +149,7 @@ function Vehicles() {
         >
           {sortedCars.map((car) => (
             <SwiperSlide className="vehicleSwiper" key={car.id}>
-              <Link to={`/VehicleDetails/${car.id}`} className="carLink">
+              <Link to={`/vehicle-details/${car.id}`} className="carLink">
                 <div className="carCard">
                   <div className={`carImg car${car.id}`}>
                     <style>
@@ -175,34 +175,34 @@ function Vehicles() {
                   <h2>{car.name}</h2>
                   <div className={`divider${car.id}`} />
                   <p className="carDescription">{car.description}</p>
-                  <div className="carIcons">
-                    <a
-                      className="icon"
-                      href="https://github.com/VelzckC0D3/Land-Rover-E-Commerce"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <BsTwitter />
-                    </a>
-                    <a
-                      className="icon"
-                      href="https://github.com/VelzckC0D3/Land-Rover-E-Commerce"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <BsInstagram />
-                    </a>
-                    <a
-                      className="icon"
-                      href="https://github.com/VelzckC0D3/Land-Rover-E-Commerce"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <BsFacebook />
-                    </a>
-                  </div>
                 </div>
               </Link>
+              <div className="carIcons">
+                <a
+                  className="icon"
+                  href="https://github.com/VelzckC0D3/Land-Rover-E-Commerce"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <BsTwitter />
+                </a>
+                <a
+                  className="icon"
+                  href="https://github.com/VelzckC0D3/Land-Rover-E-Commerce"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <BsInstagram />
+                </a>
+                <a
+                  className="icon"
+                  href="https://github.com/VelzckC0D3/Land-Rover-E-Commerce"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <BsFacebook />
+                </a>
+              </div>
             </SwiperSlide>
           ))}
         </Swiper>
