@@ -6,7 +6,7 @@ export const fetchReservations = createAsyncThunk(
   "reservation/fetchReservations",
   async () => {
     const response = await axios.get(`${apiURL}/api/v1/reservations`);
-    return response.data; // Assuming your API response directly contains the reservation data
+    return response.data;
   }
 );
 
