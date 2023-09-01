@@ -11,7 +11,7 @@ export const addCar = createAsyncThunk("car/addCar", async (formData) => {
   const response = await axios.post(`${apiURL}/api/v1/cars/`, {
     car: formData,
   });
-  return response.data; // Assuming your API response directly contains the added car data
+  return response.data;
 });
 
 export const deleteCar = createAsyncThunk("car/deleteCar", async (carId) => {
