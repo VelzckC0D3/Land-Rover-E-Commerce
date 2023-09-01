@@ -19,7 +19,6 @@ export const deleteCar = createAsyncThunk("car/deleteCar", async (carId) => {
   return carId;
 });
 
-// Initial state
 const initialState = {
   data: [],
   status: "idle",
