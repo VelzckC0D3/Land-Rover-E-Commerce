@@ -15,7 +15,7 @@ export const addReservation = createAsyncThunk(
   async (formData) => {
     const response = await axios.post(`${apiURL}/api/v1/reservations`, {
       reservation: formData,
-    }); // Assuming your API expects the reservation data wrapped in "reservation" object
+    });
     return response.data; // Assuming your API response directly contains the added reservation data
   }
 );
