@@ -34,7 +34,6 @@ const initialState = {
   error: null,
 };
 
-// Slice
 const reservSlice = createSlice({
   name: "reservation",
   initialState,
