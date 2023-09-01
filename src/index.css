@@ -40,8 +40,7 @@ input:-webkit-autofill:active {
   -webkit-text-fill-color: white !important;
 }
 
-input[type="date"]
-{
+input[type="date"] {
   min-height: 2.5rem;
 }
 
@@ -59,7 +58,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 
 .calendarIcon {
   font-size: 1.5rem;
-  color:white;
+  color: white;
   position: absolute;
   pointer-events: none;
   right: 1rem;
@@ -71,7 +70,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   }
 
   to {
-    opacity: 1 ;
+    opacity: 1;
     transform: translateY(0);
   }
 }
@@ -112,7 +111,9 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   text-align: center;
   opacity: 0;
   animation: fadeInTop 0.2s ease-in-out 0.3s forwards;
+  /* stylelint-disable */
   -webkit-animation: fadeInTop 0.2s ease-in-out 0.3s forwards;
+  /* stylelint-enable */
 }
 
 .inputCont {
@@ -160,7 +161,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   gap: 0.5rem;
   justify-content: center;
   align-items: center;
-  filter: drop-shadow(0px 0px 2px #000);
+  filter: drop-shadow(0 0 2px #000);
   font-size: 1.2rem;
 }
 
@@ -168,4 +169,3 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   color: #97bf0f;
   font-size: 1.4rem;
 }
-
