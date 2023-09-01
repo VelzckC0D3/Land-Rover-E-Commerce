@@ -106,7 +106,7 @@ function AddReservationPage() {
             {...register("city", { required: true })}
             className="formInput"
           />
-          {errors.city && <span>This field is required</span>}
+          {errors.city && <span>City name is required</span>}
           <input
             type="date"
             name="date"
@@ -116,10 +116,7 @@ function AddReservationPage() {
             className="formInput"
           />
           {errors.date?.type === "required" && (
-            <span>This field is required</span>
-          )}
-          {errors.date?.type === "min" && (
-            <span>Date must be in the future</span>
+            <span>Date is required</span>
           )}
 
           <select
@@ -127,14 +124,14 @@ function AddReservationPage() {
             {...register("car_id", { required: true })}
             className="formInput formSelect"
           >
-            <option className="carSelector">Select a car</option>
+            <option className="carSelector" value="" >Select a vehicle</option>
             {cars.map((car) => (
               <option key={car.id} value={car.id} className="carSelector">
                 {car.name}
               </option>
             ))}
           </select>
-          {errors.car_id && <span>This field is required</span>}
+          {errors.car_id && <span>Select Vehicle Model</span>}
         </div>
         <button type="submit" className="submit">
           Book Reservation

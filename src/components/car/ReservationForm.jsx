@@ -16,7 +16,7 @@ function AddReservationPage() {
   const userFromLocalStorage = JSON.parse(localStorage.getItem("user"));
   const userId = userFromLocalStorage ? userFromLocalStorage.id : null;
 
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit, formState: { errors }, } = useForm();
 
   useEffect(() => {
     dispatch(fetchCars());
@@ -85,6 +85,7 @@ function AddReservationPage() {
             {...register("city", { required: true })}
             className="formInput"
           />
+          {errors.city && <span>City name is required</span>}
 
           <input
             type="date"
@@ -94,6 +95,7 @@ function AddReservationPage() {
             min={new Date().toISOString().split("T")[0]}
             className="formInput"
           />
+          {errors.date && <span>Date is required</span>}
 
           <div className="divider" />
 

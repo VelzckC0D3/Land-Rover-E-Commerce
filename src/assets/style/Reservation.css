@@ -73,6 +73,11 @@
   font-size: 1.3rem;
 }
 
+.reservationForm span{
+  color: rgb(255, 255, 255);
+  font-size: 1.3rem;
+}
+
 .formSelect {
   padding-right: 1rem;
 }
