@@ -4,7 +4,7 @@ import apiURL from "../auth/urls";
 
 export const fetchCars = createAsyncThunk("car/fetchCars", async () => {
   const response = await axios.get(`${apiURL}/api/v1/cars/`);
-  return response.data; // Assuming your API response directly contains the car data
+  return response.data;
 });
 
 export const addCar = createAsyncThunk("car/addCar", async (formData) => {
