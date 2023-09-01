@@ -28,7 +28,6 @@ export const deleteReservation = createAsyncThunk(
   }
 );
 
-// Initial state
 const initialState = {
   data: [],
   status: "idle",
