@@ -68,8 +68,9 @@ export const loginUser = (formData) => async (dispatch) => {
 };
 
 export const logoutUser = () => async (dispatch, getState) => {
+  const token = getState().auth.token || localStorage.getItem("token");
+
   try {
-    const { token } = getState().auth;
     const response = await axios.delete(`${apiURL}/logout`, {
       headers: {
         "Content-Type": "application/json",
