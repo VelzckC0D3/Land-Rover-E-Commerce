@@ -26,7 +26,6 @@ const initialState = {
   error: null,
 };
 
-// Slice
 const carSlice = createSlice({
   name: "car",
   initialState,
