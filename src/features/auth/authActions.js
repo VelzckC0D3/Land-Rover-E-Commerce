@@ -67,25 +67,12 @@ export const loginUser = (formData) => async (dispatch) => {
   }
 };
 
-export const logoutUser = () => async (dispatch, getState) => {
-  const token = getState().auth.token || localStorage.getItem("token");
-
+export const logoutUser = () => async (dispatch) => {
   try {
-    const response = await axios.delete(`${apiURL}/logout`, {
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: token,
-      },
-    });
-
-    if (response.status === 200) {
-      dispatch(logout());
-      localStorage.removeItem("token");
-      localStorage.removeItem("user");
-      toast.success("Logged out successfully.");
-    } else {
-      throw new Error(response.statusText);
-    }
+    dispatch(logout());
+    localStorage.removeItem("token");
+    localStorage.removeItem("user");
+    toast.success("Logged out successfully.");
   } catch (error) {
     dispatch(authFailure(error.message));
     toast.error("Logout failed. Please try again.");
