@@ -41,7 +41,7 @@ function CarDetails() {
   const totalAmount = car.price + financeFee * 2;
 
   const makeReservation = isAuthenticated ? (
-    <Link to={`/reservation/${car.id}`}>
+    <Link to={`/car-reservation/${car.id}`}>
       <button className="scheduleBtn">
         Make Reservation
         <FaAngleRight />
@@ -87,10 +87,28 @@ function CarDetails() {
           loop={true}
           navigation={true}
           effect="fade"
+          speed={0}
           spaceBetween={10}
           modules={[EffectFade, Navigation]}
           className="detailsSwiper"
         >
+          <SwiperSlide>
+            <div className="detailsImgBg">
+              <div
+                className={`detailsImg semiFront2${car.id}`}
+                alt={car.name}
+              />
+            </div>
+            <style>
+              {` 
+            .semiFront2${car.id}{
+              transform: scaleX(-1);
+              background-image: url(${car.semi_front_image});
+            }
+            `}
+            </style>
+          </SwiperSlide>
+
           <SwiperSlide>
             <div className="detailsImgBg">
               <div className={`detailsImg front${car.id}`} alt={car.name} />
@@ -183,23 +201,7 @@ function CarDetails() {
             `}
             </style>
           </SwiperSlide>
-
-          <SwiperSlide>
-            <div className="detailsImgBg">
-              <div
-                className={`detailsImg semiFront2${car.id}`}
-                alt={car.name}
-              />
-            </div>
-            <style>
-              {` 
-            .semiFront2${car.id}{
-              transform: scaleX(-1);
-              background-image: url(${car.semi_front_image});
-            }
-            `}
-            </style>
-          </SwiperSlide>
+          
         </Swiper>
 
         <div className="detailsActions">
@@ -213,8 +215,13 @@ function CarDetails() {
         </div>
       </div>
       <div className="detailsInfoCont">
-        <div className="divider" />
+        { window.innerWidth > 900 ? 
+         <div className="detailsHeader2">
+         <h1 className="detailsName2">{car.name}</h1>
+         <p className="detailsSub2">Model Details & Reservation</p>
+       </div> : null }
 
+        <div className="divider" />
         <div className="detailsInfo">
           <div className="detailsPrice">
             <p>Minimum deposit</p>
@@ -237,7 +244,7 @@ function CarDetails() {
 
         <div className="divider" />
         <div className="detailsSchedule">
-          <p className="scheduleText">Are you interested in this vehicle?</p>
+          <p className="scheduleText">Did you want a Test Drive?</p>
           {makeReservation}
         </div>
       </div>

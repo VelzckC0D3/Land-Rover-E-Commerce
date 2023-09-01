@@ -47,16 +47,18 @@ const Home = () => {
           }
         }
     `}</style>
+      <div className="homeSwiperCont"></div>
       <Swiper
+      className="homeSwiper"
         direction="horizontal"
         modules={[Autoplay, EffectFade, Navigation, Pagination]}
         effect="fade"
-        autoplay={{ delay: 3000, disableOnInteraction: false }}
+        autoplay={{ delay: 2000, disableOnInteraction: false }}
         slidesPerView={1}
         allowTouchMove={false}
         loop={true}
         pagination={{
-          clickable: true,
+          clickable: true
         }}
       >
         <SwiperSlide>
@@ -119,6 +121,7 @@ const Home = () => {
           </div>
         </SwiperSlide>
       </Swiper>
+
     </>
   );
 };

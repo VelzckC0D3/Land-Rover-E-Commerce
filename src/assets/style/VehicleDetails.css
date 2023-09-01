@@ -65,6 +65,7 @@
 .detailsSwiper .swiper-button-next::after {
   content: "";
   background-image: url(/src/assets/image/rotate.svg);
+  user-select: none;
   background-repeat: no-repeat;
   background-size: 1.8rem;
   background-position: center;
@@ -178,6 +179,18 @@
   max-width: 22rem;
   opacity: 0;
   animation: fadeInTop 0.2s ease-in-out 0.3s forwards;
+}
+
+.detailsHeader2 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  text-align: right;
+}
+
+.detailsName2 {
+  font-size: 1.8rem;
 }
 
 .detailsDescription {

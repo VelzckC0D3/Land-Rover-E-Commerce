@@ -3,9 +3,9 @@ import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { addCar } from "../../features/cars/carSlice";
 import { toast } from "react-hot-toast";
-import "../../assets/style/AddCar.css";
+import "../../assets/style/NewVehicle.css";
 
-function AddCarForm() {
+function NewVehicle() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { register, handleSubmit, reset } = useForm();
@@ -36,14 +36,6 @@ function AddCarForm() {
             filter: brightness(1) invert(0);
           }
 
-          input:-webkit-autofill,
-          input:-webkit-autofill:hover, 
-          input:-webkit-autofill:focus, 
-          input:-webkit-autofill:active  {
-            transition: background-color 5000s;
-            -webkit-text-fill-color: white !important;
-          }
-
           @media (min-width: 900px) {
             .navButton {
               display: block
@@ -56,48 +48,51 @@ function AddCarForm() {
       </style>
       <div className="carFormCont addCar">
         <form className="carForm" onSubmit={handleSubmit(onSubmit)}>
-          <h2 className="formTitle carFormTitle">Add New Vehicle</h2>
-          <div className="mainInputs">
-            <input
+          <h2 className="formTitle">Add New Vehicle</h2>
+          <div className="inputCont">
+            <div className="mainInputs">
+              <input
+                required={true}
+                className="formInput"
+                type="text"
+                name="name"
+                placeholder="Model"
+                {...register("name", { required: true })}
+              />
+
+              <input
+                required={true}
+                className="formInput"
+                type="number"
+                name="price"
+                placeholder="Price"
+                {...register("price", { required: true })}
+              />
+            </div>
+
+            <textarea
               required={true}
-              className="carFormInput"
-              type="text"
-              name="name"
-              placeholder="Model"
-              {...register("name", { required: true })}
+              className="carFormArea"
+              name="description"
+              placeholder="Description"
+              {...register("description", { required: true })}
             />
 
-            <input
-              required={true}
-              className="carFormInput"
-              type="number"
-              name="price"
-              placeholder="Price"
-              {...register("price", { required: true })}
-            />
+            <div className="imageInputs">
+              <input
+                required={true}
+                className="formInput"
+                type="text"
+                name="front_image"
+                placeholder="Front Image URL"
+                {...register("front_image", { required: true })}
+              />
+            </div>
           </div>
-
-          <textarea
-            required={true}
-            className="carFormArea"
-            name="description"
-            placeholder="Description"
-            {...register("description", { required: true })}
-          />
-
-          <div className="imageInputs">
+          <div className="inputCont inputCont2">
             <input
               required={true}
-              className="carFormInput"
-              type="text"
-              name="front_image"
-              placeholder="Front Image URL"
-              {...register("front_image", { required: true })}
-            />
-
-            <input
-              required={true}
-              className="carFormInput"
+              className="formInput"
               type="text"
               name="semi_front_image"
               placeholder="Semi Front Image URL"
@@ -106,7 +101,7 @@ function AddCarForm() {
 
             <input
               required={true}
-              className="carFormInput"
+              className="formInput"
               type="text"
               name="side_image"
               placeholder="Side Image URL"
@@ -115,7 +110,7 @@ function AddCarForm() {
 
             <input
               required={true}
-              className="carFormInput"
+              className="formInput"
               type="text"
               name="semi_back_image"
               placeholder="Semi Back Image URL"
@@ -124,23 +119,24 @@ function AddCarForm() {
 
             <input
               required={true}
-              className="carFormInput"
+              className="formInput"
               type="text"
               name="back_image"
               placeholder="Back Image URL"
               {...register("back_image", { required: true })}
             />
-          </div>
 
-          <label htmlFor="color" className="carColor">
-            Pick Theme Color
-            <input
-              required={true}
-              type="color"
-              name="color"
-              {...register("color")}
-            />
-          </label>
+            <label htmlFor="color" className="carColor">
+              Pick Theme Color
+              <input
+                required={true}
+                type="color"
+                name="color"
+                {...register("color")}
+              />
+            </label>
+          </div>
+          <div className="divider" />
           <button type="submit">Add Vehicle</button>
         </form>
       </div>
@@ -148,4 +144,4 @@ function AddCarForm() {
   );
 }
 
-export default AddCarForm;
+export default NewVehicle;

@@ -1,12 +1,13 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { addReservation } from "../features/reservation/reservSlice";
-import { fetchCars } from "../features/cars/carSlice";
+import { addReservation } from "../../features/reservation/reservSlice";
+import { fetchCars } from "../../features/cars/carSlice";
 import { toast } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import "../assets/style/Reservation.css";
-
+import "../../assets/style/NewReservation.css";
+import { BsCalendar2Week } from "react-icons/bs";
+ 
 function AddReservationPage() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -42,7 +43,7 @@ function AddReservationPage() {
       // Show a success toast message
       toast.success("Reservation added successfully!");
       // Redirect to "My Reservations"
-      navigate("/myreservations");
+      navigate("/my-reservations");
     });
   };
 
@@ -60,18 +61,12 @@ function AddReservationPage() {
         .navButton{
           filter: brightness(0) invert(1);
         }
+        
         .btnActive {
           transform: rotate(360deg);
           -webkit-transform: rotate(360deg);
           filter: brightness(1) invert(0);
         }
-
-          input:-webkit-autofill,
-          input:-webkit-autofill:hover, 
-          input:-webkit-autofill:focus, 
-          input:-webkit-autofill:active  {
-            -webkit-text-fill-color: white !important;
-          }
 
           .formCont{
             background-color: grey;
@@ -106,37 +101,36 @@ function AddReservationPage() {
             {...register("city", { required: true })}
             className="formInput"
           />
-          {errors.city && <span>This field is required</span>}
+          <div className="inputDate">
           <input
+            required={true}
             type="date"
             name="date"
             placeholder="Date"
             {...register("date", { required: true })}
             min={new Date().toISOString().split("T")[0]}
-            className="formInput"
+            className="formInput dateInput"
           />
-          {errors.date?.type === "required" && (
-            <span>This field is required</span>
-          )}
-          {errors.date?.type === "min" && (
-            <span>Date must be in the future</span>
-          )}
-
+          <BsCalendar2Week className="calendarIcon" />
+          </div>
           <select
+            required={true}
             name="car_id"
             {...register("car_id", { required: true })}
             className="formInput formSelect"
           >
-            <option className="carSelector">Select a car</option>
+            <option className="carSelector" value="">
+              Select a vehicle
+            </option>
             {cars.map((car) => (
               <option key={car.id} value={car.id} className="carSelector">
                 {car.name}
               </option>
             ))}
           </select>
-          {errors.car_id && <span>This field is required</span>}
+          {errors.car_id && <span>Select Vehicle Model</span>}
         </div>
-        <button type="submit" className="submit">
+        <button type="submit" className="reservationSubmit">
           Book Reservation
         </button>
       </form>

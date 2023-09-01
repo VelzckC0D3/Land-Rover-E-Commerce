@@ -17,18 +17,6 @@
   padding: 0 1rem;
 }
 
-@keyframes fadeInTop {
-  from {
-    opacity: 0;
-    transform: translateY(-1rem);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
 .vehiclesTitle {
   font-family: "Bruno Ace", cursive;
   -webkit-text-stroke: 1px;
@@ -120,6 +108,7 @@
 
 .carImg img {
   width: 100%;
+  max-width: 22rem;
 }
 
 .carImg::before {
@@ -158,7 +147,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 5rem;
+  height: 8rem;
   color: grey;
   -webkit-text-stroke: 0.3px;
 }

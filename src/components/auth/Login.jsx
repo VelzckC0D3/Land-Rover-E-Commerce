@@ -39,14 +39,6 @@ const Login = () => {
             -webkit-transform: rotate(360deg);
             filter: brightness(1) invert(0);
           }
-
-          input:-webkit-autofill,
-          input:-webkit-autofill:hover, 
-          input:-webkit-autofill:focus, 
-          input:-webkit-autofill:active  {
-            transition: background-color 5000s;
-            -webkit-text-fill-color: #fff !important;
-          }
           
           @media (min-width: 900px) {
 
@@ -122,7 +114,11 @@ const Login = () => {
             />
           </div>
           <div className="divider" />
-          <button type="submit">Login</button>
+          <button className="loginSubmit" type="submit">Login</button>
+          <div className="formHelper loginHelper">
+            <p className="helperText">Don&rsquo;t have an account?</p>
+            <a className="helperLink" href="/register">Register</a>
+          </div>
         </form>
       </section>
     </>

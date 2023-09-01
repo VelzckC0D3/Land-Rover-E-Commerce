@@ -3,17 +3,17 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { Toaster } from "react-hot-toast";
 import "./index.css";
-import Home from "./pages/Home";
+import Home from "./components/Home";
 import Registration from "./components/auth/Registration";
 import Login from "./components/auth/Login";
-import CarDetails from "./components/car/VehicleDetails";
+import VehicleDetails from "./components/vehicle/VehicleDetails";
 import Navbar from "./components/Navbar";
-import Vehicles from "./pages/Vehicles";
-import Reservation from "./pages/Reservation";
-import ReservationForm from "./components/car/ReservationForm";
-import My_reservations from "./pages/My_reservations";
-import DeleteVehicle from "./components/car/DeleteVehicle";
-import AddCar from "./components/car/AddCar";
+import Vehicles from "./components/vehicle/Vehicles";
+import NewReservation from "./components/reservation/NewReservation";
+import NewCarReservation from "./components/reservation/NewCarReservation";
+import MyReservations from "./components/reservation/MyReservations";
+import DeleteVehicle from "./components/vehicle/DeleteVehicle";
+import NewVehicle from "./components/vehicle/NewVehicle";
 import { authSuccess } from "./features/auth/authSlice";
 
 const App = () => {
@@ -37,12 +37,12 @@ const App = () => {
           <Route path="/vehicles" element={<Vehicles />} />
           <Route path="/sign_up" element={<Registration />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/VehicleDetails/:carId" element={<CarDetails />} />
-          <Route path="/reservation" element={<Reservation />} />
-          <Route path="/reservation/:carId" element={<ReservationForm />} />
-          <Route path="/myreservations" element={<My_reservations />} />
-          <Route path="/deletecars" element={<DeleteVehicle />} />
-          <Route path="/addcars" element={<AddCar />} />
+          <Route path="/vehicle-details/:carId" element={<VehicleDetails />} />
+          <Route path="/new-reservation" element={<NewReservation />} />
+          <Route path="/car-reservation/:carId" element={<NewCarReservation />} />
+          <Route path="/my-reservations" element={<MyReservations />} />
+          <Route path="/delete-vehicle" element={<DeleteVehicle />} />
+          <Route path="/new-vehicle" element={<NewVehicle />} />
         </Routes>
       </Router>
     </React.StrictMode>
