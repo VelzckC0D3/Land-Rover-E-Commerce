@@ -1,0 +1,52 @@
+.loginFormCont {
+  background-color: #ffb400;
+  background-image: url(../image/form1.webp);
+  background-size: cover;
+  background-position: -15% 40%;
+  z-index: 1;
+}
+
+.loginForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  width: 100%;
+  max-width: 35rem;
+  border-radius: 1rem;
+  background-color: rgba(0, 0, 0, 0);
+  backdrop-filter: blur(8px);
+  padding: 2rem;
+  opacity: 0;
+  animation: appear 0.2s ease-in-out 0.1s forwards;
+}
+
+.loginForm .inputCont {
+  opacity: 0;
+  animation: fadeInTop 0.2s ease-in-out 0.4s forwards;
+}
+
+.formInput:focus {
+  outline: none;
+}
+
+.formInput::placeholder {
+  color: rgb(255, 255, 255);
+  font-size: 1.3rem;
+}
+
+.loginForm .divider {
+  opacity: 0;
+  animation: fadeInTop 0.2s ease-in-out 0.5s forwards;
+}
+
+.loginSubmit {
+  opacity: 0;
+  animation: fadeInTop 0.2s ease-in-out 0.7s forwards;
+}
+
+.loginHelper {
+  opacity: 0;
+  animation: fadeInTop 0.2s ease-in-out 0.8s forwards;
+}

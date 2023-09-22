@@ -1,0 +1,117 @@
+.reservationCont {
+  background-image: url(../image/form4.webp);
+  background-size: cover;
+  background-position: 110% 40%;
+  background-color: #56a557 !important;
+}
+
+.reservationForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+  max-width: 35rem;
+  border-radius: 1rem;
+  background-color: rgba(0, 0, 0, 0);
+  backdrop-filter: blur(8px);
+  padding: 2rem;
+  opacity: 0;
+  animation: appear 0.2s ease-in-out forwards;
+  /* stylelint-disable */
+  -webkit-animation: appear 0.2s ease-in-out forwards;
+  /* stylelint-enable */
+}
+
+.reservationForm .formTitle {
+  margin-bottom: 0;
+}
+
+.reservationForm .formDesc {
+  color: white;
+  text-align: center;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid white;
+  margin-bottom: 0.5rem;
+  opacity: 0;
+  animation: fadeInTop 0.2s ease-in-out 0.4s forwards;
+  /* stylelint-disable */
+  -webkit-animation: fadeInTop 0.2s ease-in-out 0.4s forwards;
+  /* stylelint-enable */
+}
+
+.reservationForm .inputCont {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  opacity: 0;
+  animation: fadeInTop 0.2s ease-in-out 0.5s forwards;
+  /* stylelint-disable */
+  -webkit-animation: fadeInTop 0.2s ease-in-out 0.5s forwards;
+  /* stylelint-enable */
+}
+
+.reservationForm .formInput {
+  width: 100%;
+  max-width: 35rem;
+  padding: 10px;
+  border: 2px solid rgb(255, 255, 255);
+  border-radius: 7rem;
+  background-color: rgba(0, 0, 0, 0);
+  backdrop-filter: blur(7px);
+  color: rgb(255, 255, 255);
+  font-size: 1.3rem;
+}
+
+.reservationForm .formInput::-webkit-calendar-picker-indicator {
+  filter: invert(1);
+  padding-right: 0.5rem;
+}
+
+.dateInput {
+  height: 3.1rem;
+  display: flex;
+  justify-content: flex-start;
+  text-align: left;
+}
+
+.carSelector {
+  background-color: #000000d3;
+}
+
+.reservationForm .divider {
+  opacity: 0;
+  animation: fadeInTop 0.2s ease-in-out 0.6s forwards;
+  /* stylelint-disable */
+  -webkit-animation: fadeInTop 0.2s ease-in-out 0.6s forwards;
+  /* stylelint-enable */
+}
+
+.reservationSubmit {
+  opacity: 0;
+  animation: fadeInTop 0.2s ease-in-out 0.7s forwards;
+  /* stylelint-disable */
+  -webkit-animation: fadeInTop 0.2s ease-in-out 0.7s forwards;
+  /* stylelint-enable */
+}
+
+/* MOBILE */
+
+@media (min-width: 900px) {
+  .reservationCont {
+    background-position: -27rem 50%;
+    background-size: contain;
+  }
+}
+
+@media (min-width: 1330px) {
+  .reservationCont {
+    background-position: center;
+  }
+}
+
+/* MOBILE */
