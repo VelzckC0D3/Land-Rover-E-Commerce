@@ -72,7 +72,7 @@ function Vehicles() {
 
             @media (min-width: 900px) {
               .vehiclesCont {
-                min-width: 50%;
+                width: 100%;
               }
               .swiperCont {
                 width: 100%;
